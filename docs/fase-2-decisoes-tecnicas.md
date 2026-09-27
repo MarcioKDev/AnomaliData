@@ -15,12 +15,12 @@ a análise em até 30 segundos. Os limites de marcação serão configuráveis. 
 demonstração principal avaliará o preço unitário no grupo formado por produto e
 fornecedor.
 
-## Etapa 9 Repositório e padrão
+## Repositório e padrão de codificação
 
 O repositório usa uma estrutura `src`, separa domínio, aplicação, testes,
 documentação e medições. O padrão completo está em `docs/padrao-codificacao.md`.
 
-## Etapas 10 e 11 Operações e volumes
+## Operações e volumes
 
 | Coleção | Operação predominante | Volume | Origem |
 |---|---|---:|---|
@@ -36,7 +36,7 @@ histórico ainda não foi informado, portanto nenhum valor foi inventado para es
 coleção. A Fase 3 deverá medir o armazenamento no SQLite considerando a retenção
 de 12 meses definida no Termo de Referência.
 
-## Etapa 12 Estruturas de dados
+## Estruturas de dados
 
 | Coleção | Estrutura | Justificativa |
 |---|---|---|
@@ -45,7 +45,7 @@ de 12 meses definida no Termo de Referência.
 | Alertas | `list[AlertaAnomalia]` ordenada uma vez | Os alertas são produzidos sequencialmente e exibidos em ordem decrescente de pontuação. Na execução aceita, a lista terá no máximo 65 itens e será ordenada apenas ao final. |
 | Revisões | `dict[str, RevisaoAlerta]` | A operação predominante localiza um alerta pelo identificador para incluir ou alterar sua classificação. O acesso médio constante facilita persistir a revisão ativa de cada alerta. |
 
-## Etapa 13 Medição do índice histórico
+## Medição do algoritmo crítico
 
 A operação crítica é agrupar registros pela chave `produto + fornecedor`. Foram
 comparadas duas estratégias sobre os mesmos dados sintéticos:
@@ -75,7 +75,7 @@ formal de 10.000 itens, o dicionário realizou 10.000 consultas, enquanto a busc
 linear exigiu 9.095.848 comparações. O ensaio adicional de 20.000 itens confirma
 que a escolha também atende ao pico operacional relatado.
 
-## Etapa 14 Modelo de domínio e erros
+## Modelo de domínio e convenção de erros
 
 | Classe | Responsabilidade única |
 |---|---|
