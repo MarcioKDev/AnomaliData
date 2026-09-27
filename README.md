@@ -69,6 +69,7 @@ comparações, que permite comparar as estratégias sem depender apenas da máqu
 
 ## Documentação
 
+- [Rastreabilidade dos requisitos](docs/rastreabilidade-requisitos.md)
 - [Arquitetura da Fase 3](docs/arquitetura.md)
 - [Decisões técnicas da Fase 2](docs/fase-2-decisoes-tecnicas.md)
 - [Padrão de codificação](docs/padrao-codificacao.md)

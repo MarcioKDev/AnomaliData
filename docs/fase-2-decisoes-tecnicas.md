@@ -3,7 +3,7 @@
 ## Base das decisões
 
 As estimativas vieram do Termo de Referência v1.3 e do Roteiro de Entrevista
-v1.2. O processo operacional reúne aproximadamente 10.000 registros de compras
+v1.3. O processo operacional reúne aproximadamente 10.000 registros de compras
 por mês e pode chegar a 20.000 em períodos de pico. A conferência manual leva
 entre quatro e oito horas. Esses valores descrevem o contexto relatado e não
 alteram os critérios formais de aceitação.

@@ -1,7 +1,7 @@
 # Fase 3 Arquitetura do AnomaliData
 
 Este documento consolida a arquitetura da primeira versão do AnomaliData. As
-decisões preservam o Termo de Referência v1.3, o Roteiro de Entrevista v1.2 e as
+decisões preservam o Termo de Referência v1.3, o Roteiro de Entrevista v1.3 e as
 estruturas medidas na Fase 2.
 
 ## 1. Visão geral da solução
