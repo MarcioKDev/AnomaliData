@@ -9,13 +9,15 @@ com arquivos CSV ou XLSX e uma base sintética com anomalias conhecidas.
 
 ## Estado atual
 
-Este repositório contém as decisões técnicas da Fase 2:
+Este repositório contém as decisões técnicas da Fase 2 e a arquitetura da Fase 3:
 
 - padrão de codificação;
 - modelo inicial do domínio;
 - estruturas de dados justificadas pelo volume levantado;
 - benchmark da construção do índice histórico;
-- testes das invariantes das classes de domínio.
+- contratos de persistência pertencentes ao domínio;
+- esquema SQLite versionado e política de retenção de 12 meses;
+- repositórios em memória e testes das invariantes do domínio.
 
 ## Critérios da validação
 
@@ -33,7 +35,7 @@ substituem a base formal de validação definida no Termo de Referência.
 ## Requisitos
 
 - Python 3.12 ou versão compatível da série 3.12;
-- nenhuma dependência externa para executar os artefatos da Fase 2.
+- nenhuma dependência externa para executar os artefatos das Fases 2 e 3.
 
 ## Estrutura
 
@@ -42,8 +44,9 @@ AnomaliData/
 ├── benchmarks/              # Medições das decisões algorítmicas
 ├── docs/                    # Decisões e padrões do projeto
 ├── src/anomalidata/         # Código-fonte organizado por responsabilidade
-│   ├── aplicacao/           # Casos de uso e serviços de aplicação
-│   └── dominio/             # Entidades, valores e erros do domínio
+│   ├── aplicacao/           # Coordenação dos casos de uso
+│   ├── dominio/             # Entidades, regras e contratos estáveis
+│   └── persistencia/        # Implementações e migrações do armazenamento
 └── tests/                   # Testes automatizados
 ```
 
@@ -66,6 +69,7 @@ comparações, que permite comparar as estratégias sem depender apenas da máqu
 
 ## Documentação
 
+- [Arquitetura da Fase 3](docs/arquitetura.md)
 - [Decisões técnicas da Fase 2](docs/fase-2-decisoes-tecnicas.md)
 - [Padrão de codificação](docs/padrao-codificacao.md)
 - [Resultados do benchmark](docs/resultados_benchmark.csv)
