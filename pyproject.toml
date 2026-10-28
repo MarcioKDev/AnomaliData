@@ -4,15 +4,24 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "anomalidata"
-version = "0.1.0"
+version = "0.2.0"
 description = "Detecção de anomalias em registros de compras"
 requires-python = ">=3.12,<3.13"
+dependencies = [
+  "openpyxl>=3.1,<4",
+]
 authors = [
   { name = "Marcio Kauã Ferreira de Campos" }
 ]
 
+[project.gui-scripts]
+anomalidata = "anomalidata.apresentacao.desktop:main"
+
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+"anomalidata.persistencia" = ["migrations/*.sql"]
 
 [tool.black]
 line-length = 88

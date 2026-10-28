@@ -26,6 +26,9 @@ python scripts/gerar_base_validacao.py --saida data/validacao
 
 Cada produto possui uma faixa própria de preço. O fornecedor e o mês influenciam
 o valor esperado, e uma pequena variação aleatória reproduz oscilações normais.
-As anomalias incluem preços muito acima ou abaixo do histórico, quantidades
-atípicas e desvios combinados. A anotação guarda o valor normal antes da inserção
-e o valor final usado na base.
+As 50 anomalias incluem 25 preços muito acima, 10 preços muito abaixo, 5
+quantidades atípicas, 5 desvios moderados de preço e 5 desvios combinados de
+preço e quantidade. Assim, a demonstração principal de preço contém 45 casos
+positivos e a análise alternativa de quantidade pode ser exercitada sem alterar
+o gabarito. A anotação guarda o valor normal antes da inserção e o valor final
+usado na base.

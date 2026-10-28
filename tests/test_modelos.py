@@ -61,7 +61,9 @@ class ResultadoAnaliseTest(unittest.TestCase):
             registro=registro,
             pontuacao=pontuacao,
             fatores=("Preço acima da referência histórica",),
-            desvio_preco_percentual=Decimal("30"),
+            coluna_analisada="preco_unitario",
+            valor_referencia=Decimal("32.69"),
+            desvio_percentual=Decimal("30"),
         )
 
     def test_aceita_alertas_em_ordem_decrescente(self) -> None:

@@ -45,6 +45,13 @@ contexto e as necessidades operacionais.
 | Gerador determinístico | `scripts/gerar_base_validacao.py` | Reprodutibilidade da base |
 | Testes da base | `tests/test_base_validacao.py` | Dimensões e determinismo |
 | Arquitetura | `docs/arquitetura.md` | CA-01 a CA-11 |
+| Construção da Fase 4 | `docs/fase-4-construcao.md` | CA-01 a CA-11 |
+| Manual de execução | `docs/manual-execucao.md` | CA-08 |
+| Importação CSV/XLSX | `src/anomalidata/aplicacao/importacao.py` | CA-01 e CA-09 |
+| Análise e avaliador | `src/anomalidata/aplicacao/analise.py` e `avaliacao.py` | CA-02 a CA-06 |
+| Persistência SQLite | `src/anomalidata/persistencia/sqlite.py` | CA-10 e CA-11 |
+| Teste de aceitação integral | `tests/test_analise_aceitacao.py` | CA-02, CA-03, CA-04, CA-05 e CA-06 |
+| Teste offline | `tests/test_operacao_offline.py` | Decisão de arquitetura local |
 
 ## Nota de versão
 

@@ -10,8 +10,8 @@
     "desvio_moderado_preco": 5,
     "preco_e_quantidade_acima": 5,
     "preco_muito_abaixo": 10,
-    "preco_muito_acima": 20,
-    "quantidade_muito_acima": 10
+    "preco_muito_acima": 25,
+    "quantidade_muito_acima": 5
   },
   "arquivo_base": "base_validacao_10000.csv",
   "arquivo_anotacoes": "anomalias_esperadas.csv"

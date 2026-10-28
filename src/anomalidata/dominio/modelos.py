@@ -90,7 +90,9 @@ class AlertaAnomalia:
     registro: RegistroCompra
     pontuacao: float
     fatores: tuple[str, ...]
-    desvio_preco_percentual: Decimal
+    coluna_analisada: str
+    valor_referencia: Decimal
+    desvio_percentual: Decimal
 
     def __post_init__(self) -> None:
         object.__setattr__(
@@ -102,6 +104,17 @@ class AlertaAnomalia:
             raise DadoInvalidoError("Pontuação não pode ser negativa")
         if not self.fatores or any(not fator.strip() for fator in self.fatores):
             raise DadoInvalidoError("O alerta deve informar ao menos um fator")
+        object.__setattr__(
+            self,
+            "coluna_analisada",
+            _texto_obrigatorio(self.coluna_analisada, "Coluna analisada"),
+        )
+        if self.coluna_analisada not in {"preco_unitario", "quantidade"}:
+            raise DadoInvalidoError("Coluna analisada não é suportada")
+        if self.valor_referencia <= 0:
+            raise DadoInvalidoError("Valor de referência deve ser maior que zero")
+        if self.desvio_percentual < 0:
+            raise DadoInvalidoError("Desvio percentual não pode ser negativo")
 
 
 class ClassificacaoAlerta(StrEnum):
@@ -137,6 +150,7 @@ class ResultadoAnalise:
     total_registros: int
     duracao_segundos: float
     alertas: tuple[AlertaAnomalia, ...]
+    linhas_duplicadas: int = 0
 
     def __post_init__(self) -> None:
         object.__setattr__(
@@ -148,6 +162,8 @@ class ResultadoAnalise:
             raise DadoInvalidoError("Total de registros não pode ser negativo")
         if self.duracao_segundos < 0:
             raise DadoInvalidoError("Duração não pode ser negativa")
+        if self.linhas_duplicadas < 0:
+            raise DadoInvalidoError("Duplicidades não podem ser negativas")
         if len(self.alertas) > self.total_registros:
             raise DadoInvalidoError("Alertas não podem exceder o total analisado")
         pontuacoes = [alerta.pontuacao for alerta in self.alertas]

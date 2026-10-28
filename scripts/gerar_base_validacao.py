@@ -105,7 +105,7 @@ def inserir_anomalias(
         preco_original = Decimal(registro["preco_unitario"])
         quantidade_original = int(registro["quantidade"])
 
-        if ordem < 20:
+        if ordem < 25:
             tipo = "preco_muito_acima"
             campo = "preco_unitario"
             fator = Decimal("2.40") + Decimal(ordem % 5) * Decimal("0.12")
@@ -114,7 +114,7 @@ def inserir_anomalias(
             original = _decimal(preco_original)
             anomalo = registro["preco_unitario"]
             descricao = "Preço muito acima do padrão do produto e fornecedor."
-        elif ordem < 30:
+        elif ordem < 35:
             tipo = "preco_muito_abaixo"
             campo = "preco_unitario"
             fator = Decimal("0.22") + Decimal(ordem % 4) * Decimal("0.04")

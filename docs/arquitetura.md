@@ -6,7 +6,7 @@ estruturas medidas na Fase 2.
 
 ## 1. Visão geral da solução
 
-O sistema será executado localmente por um único usuário. A aplicação importa
+O sistema é executado localmente por um único usuário. A aplicação importa
 CSV ou XLSX, valida a entrada, executa a análise, apresenta os alertas e mantém
 por 12 meses apenas metadados, parâmetros, alertas, classificações e o resumo da
 execução em SQLite. O arquivo bruto não é copiado para o histórico.
@@ -33,7 +33,8 @@ Fluxo principal:
 
 1. a apresentação recebe o arquivo e os parâmetros;
 2. a aplicação converte e valida cada linha por meio dos tipos do domínio;
-3. o domínio agrupa os registros, calcula referências e produz alertas ordenados;
+3. o serviço de aplicação usa os modelos do domínio para agrupar os registros,
+   calcular referências e produzir alertas ordenados;
 4. a apresentação exibe o resultado e permite a revisão humana;
 5. a persistência grava o histórico permitido, sem reter o arquivo bruto.
 
@@ -58,12 +59,15 @@ classDiagram
       +str id_alerta
       +float pontuacao
       +tuple fatores
-      +Decimal desvio_preco_percentual
+      +str coluna_analisada
+      +Decimal valor_referencia
+      +Decimal desvio_percentual
     }
     class ResultadoAnalise {
       +str id_analise
       +int total_registros
       +float duracao_segundos
+      +int linhas_duplicadas
       +tuple alertas
     }
     class ParametrosAnalise {
@@ -124,8 +128,9 @@ comparações na busca linear para a mesma base de 10.000 registros.
 conexão, ao uso individual, às consultas por histórico e à retenção definida no
 Termo. Não existe sincronização remota nesta versão.
 
-O esquema versionado está em
-`src/anomalidata/persistencia/migrations/001_inicial.sql` e possui as tabelas:
+O esquema versionado está em `src/anomalidata/persistencia/migrations/`. A
+migração 1 cria a estrutura e a migração 2 generaliza o alerta para preço ou
+quantidade. O banco possui as tabelas:
 
 | Tabela | Conteúdo persistido |
 |---|---|
@@ -170,9 +175,10 @@ class RepositorioRevisoes(Protocol):
     def buscar_por_alerta(self, id_alerta: str) -> RevisaoAlerta | None: ...
 ```
 
-`RepositorioAnalisesMemoria` e `RepositorioRevisoesMemoria` comprovam a inversão
-de dependência e permitem testar o domínio sem tela, arquivo, rede ou banco. O
-adaptador SQLite da fase de construção obedecerá aos mesmos contratos.
+`RepositorioAnalisesMemoria` e `RepositorioRevisoesMemoria` permitem testar o
+domínio sem banco. `RepositorioAnalisesSQLite` e `RepositorioRevisoesSQLite`
+implementam os mesmos contratos e foram verificados por testes estruturais e de
+leitura após a gravação.
 
 ## 6. Rastreabilidade
 
@@ -190,8 +196,9 @@ adaptador SQLite da fase de construção obedecerá aos mesmos contratos.
 | CA-10 | `RevisaoAlerta`, contrato de revisões e `alert_review` | Alterar, reiniciar e recuperar a classificação. |
 | CA-11 | `AnaliseRegistrada`, esquema SQLite e expurgo por validade | Inspecionar conteúdo, expiração e ausência do bruto. |
 
-Os testes automatizados em `tests/` verificam invariantes, ordenação, índice
-histórico, contratos e repositórios em memória. Eles são executados com:
+Os 25 testes automatizados em `tests/` verificam invariantes, ordenação, índice
+histórico, importação, critérios formais, contratos, SQLite, relatório e operação
+sem rede. Eles são executados com:
 
 ```bash
 PYTHONPATH=src python -m unittest discover -s tests -v

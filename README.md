@@ -9,7 +9,8 @@ com arquivos CSV ou XLSX e uma base sintética versionada com anomalias conhecid
 
 ## Estado atual
 
-Este repositório contém as decisões técnicas da Fase 2 e a arquitetura da Fase 3:
+Este repositório contém as decisões técnicas da Fase 2, a arquitetura da Fase 3
+e o incremento executável da Fase 4:
 
 - padrão de codificação;
 - modelo inicial do domínio;
@@ -17,9 +18,12 @@ Este repositório contém as decisões técnicas da Fase 2 e a arquitetura da Fa
 - benchmark da construção do índice histórico;
 - contratos de persistência pertencentes ao domínio;
 - esquema SQLite versionado e política de retenção de 12 meses;
-- repositórios em memória e testes das invariantes do domínio.
+- repositórios em memória e SQLite, com migrações versionadas;
 - oito fichas de requisitos funcionais, uma por item do escopo;
-- base formal de validação e gabarito separado com 50 anomalias.
+- base formal de validação e gabarito separado com 50 anomalias;
+- importação CSV/XLSX, análise configurável e alertas explicáveis;
+- interface desktop com revisão, histórico e relatório HTML;
+- execução assíncrona do fluxo pesado, sem congelar a interface.
 
 ## Critérios da validação
 
@@ -34,10 +38,15 @@ Os valores de aproximadamente 10.000 registros mensais e até 20.000 em período
 de pico descrevem o contexto operacional levantado na entrevista. Eles não
 substituem a base formal de validação definida no Termo de Referência.
 
+Na configuração principal (produto + fornecedor, preço unitário e limiar de
+25%), a construção identifica 45 das 50 anomalias, sem falsos positivos, e
+conclui o núcleo da análise em aproximadamente 0,03 segundo no ambiente local.
+
 ## Requisitos
 
-- Python 3.12 ou versão compatível da série 3.12;
-- nenhuma dependência externa para executar os artefatos das Fases 2 e 3.
+- Python 3.12;
+- Tkinter disponível no sistema;
+- `openpyxl` 3.1 ou superior para arquivos XLSX.
 
 ## Estrutura
 
@@ -49,10 +58,29 @@ AnomaliData/
 ├── scripts/                 # Geração reproduzível dos artefatos de dados
 ├── src/anomalidata/         # Código-fonte organizado por responsabilidade
 │   ├── aplicacao/           # Coordenação dos casos de uso
+│   ├── apresentacao/        # Interface desktop e navegação
 │   ├── dominio/             # Entidades, regras e contratos estáveis
 │   └── persistencia/        # Implementações e migrações do armazenamento
 └── tests/                   # Testes automatizados
 ```
+
+## Instalar e executar
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e .
+anomalidata
+```
+
+Também é possível iniciar diretamente:
+
+```bash
+PYTHONPATH=src python -m anomalidata
+```
+
+A aplicação é local e não depende de rede. O histórico fica em
+`~/.anomalidata/anomalidata.db`; o arquivo bruto importado não é armazenado.
 
 ## Executar os testes
 
@@ -83,6 +111,9 @@ como variável durante a análise.
 
 ## Documentação
 
+- [Construção da Fase 4](docs/fase-4-construcao.md)
+- [Manual de instalação e uso](docs/manual-execucao.md)
+- [Mapa de navegação](docs/mapa-navegacao.md)
 - [Correções após a AV1](docs/correcoes-av1.md)
 - [Rastreabilidade dos requisitos](docs/rastreabilidade-requisitos.md)
 - [Especificação dos requisitos](docs/especificacao-requisitos.md)
