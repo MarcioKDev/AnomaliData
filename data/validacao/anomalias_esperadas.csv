@@ -1,0 +1,51 @@
+id_registro,tipo_anomalia,campo_alterado,valor_original,valor_anomalo,descricao
+REG-01387,preco_muito_acima,preco_unitario,75.60,181.44,Preço muito acima do padrão do produto e fornecedor.
+REG-01426,preco_muito_acima,preco_unitario,93.40,235.37,Preço muito acima do padrão do produto e fornecedor.
+REG-01652,preco_muito_acima,preco_unitario,101.43,267.78,Preço muito acima do padrão do produto e fornecedor.
+REG-01669,preco_muito_acima,preco_unitario,90.31,249.26,Preço muito acima do padrão do produto e fornecedor.
+REG-01713,preco_muito_acima,preco_unitario,110.01,316.83,Preço muito acima do padrão do produto e fornecedor.
+REG-01999,preco_muito_acima,preco_unitario,103.81,249.14,Preço muito acima do padrão do produto e fornecedor.
+REG-02116,preco_muito_acima,preco_unitario,120.45,303.53,Preço muito acima do padrão do produto e fornecedor.
+REG-02197,preco_muito_acima,preco_unitario,126.29,333.41,Preço muito acima do padrão do produto e fornecedor.
+REG-02221,preco_muito_acima,preco_unitario,120.07,331.39,Preço muito acima do padrão do produto e fornecedor.
+REG-02413,preco_muito_acima,preco_unitario,140.55,404.78,Preço muito acima do padrão do produto e fornecedor.
+REG-02968,preco_muito_acima,preco_unitario,172.39,413.74,Preço muito acima do padrão do produto e fornecedor.
+REG-03055,preco_muito_acima,preco_unitario,164.70,415.04,Preço muito acima do padrão do produto e fornecedor.
+REG-03202,preco_muito_acima,preco_unitario,169.84,448.38,Preço muito acima do padrão do produto e fornecedor.
+REG-03257,preco_muito_acima,preco_unitario,163.79,452.06,Preço muito acima do padrão do produto e fornecedor.
+REG-03311,preco_muito_acima,preco_unitario,175.99,506.85,Preço muito acima do padrão do produto e fornecedor.
+REG-03505,preco_muito_acima,preco_unitario,184.10,441.84,Preço muito acima do padrão do produto e fornecedor.
+REG-03697,preco_muito_acima,preco_unitario,184.09,463.91,Preço muito acima do padrão do produto e fornecedor.
+REG-03788,preco_muito_acima,preco_unitario,185.44,489.56,Preço muito acima do padrão do produto e fornecedor.
+REG-04005,preco_muito_acima,preco_unitario,216.74,598.20,Preço muito acima do padrão do produto e fornecedor.
+REG-04182,preco_muito_acima,preco_unitario,224.57,646.76,Preço muito acima do padrão do produto e fornecedor.
+REG-04288,preco_muito_abaixo,preco_unitario,239.71,52.74,Preço muito abaixo do padrão do produto e fornecedor.
+REG-04446,preco_muito_abaixo,preco_unitario,216.72,56.35,Preço muito abaixo do padrão do produto e fornecedor.
+REG-04589,preco_muito_abaixo,preco_unitario,233.74,70.12,Preço muito abaixo do padrão do produto e fornecedor.
+REG-04645,preco_muito_abaixo,preco_unitario,234.71,79.80,Preço muito abaixo do padrão do produto e fornecedor.
+REG-04782,preco_muito_abaixo,preco_unitario,266.49,58.63,Preço muito abaixo do padrão do produto e fornecedor.
+REG-05041,preco_muito_abaixo,preco_unitario,269.94,70.18,Preço muito abaixo do padrão do produto e fornecedor.
+REG-05122,preco_muito_abaixo,preco_unitario,244.52,73.36,Preço muito abaixo do padrão do produto e fornecedor.
+REG-05718,preco_muito_abaixo,preco_unitario,303.83,103.30,Preço muito abaixo do padrão do produto e fornecedor.
+REG-05942,preco_muito_abaixo,preco_unitario,301.22,66.27,Preço muito abaixo do padrão do produto e fornecedor.
+REG-06492,preco_muito_abaixo,preco_unitario,341.71,88.84,Preço muito abaixo do padrão do produto e fornecedor.
+REG-06596,quantidade_muito_acima,quantidade,29,145,Quantidade muito acima do padrão histórico do item.
+REG-06847,quantidade_muito_acima,quantidade,7,42,Quantidade muito acima do padrão histórico do item.
+REG-06916,quantidade_muito_acima,quantidade,6,42,Quantidade muito acima do padrão histórico do item.
+REG-06941,quantidade_muito_acima,quantidade,6,30,Quantidade muito acima do padrão histórico do item.
+REG-06949,quantidade_muito_acima,quantidade,7,42,Quantidade muito acima do padrão histórico do item.
+REG-06950,quantidade_muito_acima,quantidade,7,49,Quantidade muito acima do padrão histórico do item.
+REG-07205,quantidade_muito_acima,quantidade,10,50,Quantidade muito acima do padrão histórico do item.
+REG-07256,quantidade_muito_acima,quantidade,8,48,Quantidade muito acima do padrão histórico do item.
+REG-07352,quantidade_muito_acima,quantidade,11,77,Quantidade muito acima do padrão histórico do item.
+REG-07512,quantidade_muito_acima,quantidade,13,65,Quantidade muito acima do padrão histórico do item.
+REG-07540,desvio_moderado_preco,preco_unitario,391.90,717.18,Preço incompatível com o histórico do mesmo grupo.
+REG-07769,desvio_moderado_preco,preco_unitario,370.64,707.92,Preço incompatível com o histórico do mesmo grupo.
+REG-07978,desvio_moderado_preco,preco_unitario,431.44,755.02,Preço incompatível com o histórico do mesmo grupo.
+REG-08205,desvio_moderado_preco,preco_unitario,433.95,794.13,Preço incompatível com o histórico do mesmo grupo.
+REG-08290,desvio_moderado_preco,preco_unitario,432.26,825.62,Preço incompatível com o histórico do mesmo grupo.
+REG-08572,preco_e_quantidade_acima,preco_unitario;quantidade,preco=414.00;quantidade=24,preco=910.80;quantidade=120,Preço e quantidade simultaneamente acima do histórico.
+REG-08744,preco_e_quantidade_acima,preco_unitario;quantidade,preco=452.92;quantidade=25,preco=996.42;quantidade=125,Preço e quantidade simultaneamente acima do histórico.
+REG-08864,preco_e_quantidade_acima,preco_unitario;quantidade,preco=413.61;quantidade=3,preco=909.94;quantidade=15,Preço e quantidade simultaneamente acima do histórico.
+REG-09588,preco_e_quantidade_acima,preco_unitario;quantidade,preco=518.68;quantidade=11,preco=1141.10;quantidade=55,Preço e quantidade simultaneamente acima do histórico.
+REG-09867,preco_e_quantidade_acima,preco_unitario;quantidade,preco=472.90;quantidade=13,preco=1040.38;quantidade=65,Preço e quantidade simultaneamente acima do histórico.

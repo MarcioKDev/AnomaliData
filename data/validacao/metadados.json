@@ -1,0 +1,18 @@
+{
+  "semente": 20261028,
+  "total_registros": 10000,
+  "total_produtos": 100,
+  "total_fornecedores": 20,
+  "periodo_inicial": "2025-01-01",
+  "periodo_final": "2025-12-31",
+  "total_anomalias": 50,
+  "tipos_anomalia": {
+    "desvio_moderado_preco": 5,
+    "preco_e_quantidade_acima": 5,
+    "preco_muito_abaixo": 10,
+    "preco_muito_acima": 20,
+    "quantidade_muito_acima": 10
+  },
+  "arquivo_base": "base_validacao_10000.csv",
+  "arquivo_anotacoes": "anomalias_esperadas.csv"
+}

@@ -5,7 +5,7 @@ Repositório acadêmico do TCC de Engenharia de Software da UNIASSELVI.
 O AnomaliData analisará registros de compras e destacará preços ou quantidades
 que se desviem do histórico do grupo selecionado. A demonstração principal usará
 o preço unitário agrupado por produto e fornecedor. A primeira versão trabalhará
-com arquivos CSV ou XLSX e uma base sintética com anomalias conhecidas.
+com arquivos CSV ou XLSX e uma base sintética versionada com anomalias conhecidas.
 
 ## Estado atual
 
@@ -18,10 +18,12 @@ Este repositório contém as decisões técnicas da Fase 2 e a arquitetura da Fa
 - contratos de persistência pertencentes ao domínio;
 - esquema SQLite versionado e política de retenção de 12 meses;
 - repositórios em memória e testes das invariantes do domínio.
+- oito fichas de requisitos funcionais, uma por item do escopo;
+- base formal de validação e gabarito separado com 50 anomalias.
 
 ## Critérios da validação
 
-A base formal de validação terá 10.000 registros e 50 anomalias conhecidas. A
+A base formal de validação possui 10.000 registros e 50 anomalias conhecidas. A
 execução será aceita quando:
 
 - identificar pelo menos 45 das 50 anomalias;
@@ -42,7 +44,9 @@ substituem a base formal de validação definida no Termo de Referência.
 ```text
 AnomaliData/
 ├── benchmarks/              # Medições das decisões algorítmicas
+├── data/validacao/          # Base formal e anotações separadas
 ├── docs/                    # Decisões e padrões do projeto
+├── scripts/                 # Geração reproduzível dos artefatos de dados
 ├── src/anomalidata/         # Código-fonte organizado por responsabilidade
 │   ├── aplicacao/           # Coordenação dos casos de uso
 │   ├── dominio/             # Entidades, regras e contratos estáveis
@@ -67,9 +71,21 @@ python benchmarks/benchmark_indice_historico.py \
 Os tempos dependem do equipamento. A decisão também considera a quantidade de
 comparações, que permite comparar as estratégias sem depender apenas da máquina.
 
+## Reproduzir a base de validação
+
+```bash
+python3 scripts/gerar_base_validacao.py --saida data/validacao
+```
+
+O arquivo de entrada não contém o rótulo das anomalias. O gabarito fica separado
+em `data/validacao/anomalias_esperadas.csv`, evitando que a resposta seja usada
+como variável durante a análise.
+
 ## Documentação
 
+- [Correções após a AV1](docs/correcoes-av1.md)
 - [Rastreabilidade dos requisitos](docs/rastreabilidade-requisitos.md)
+- [Especificação dos requisitos](docs/especificacao-requisitos.md)
 - [Arquitetura da Fase 3](docs/arquitetura.md)
 - [Decisões técnicas da Fase 2](docs/fase-2-decisoes-tecnicas.md)
 - [Padrão de codificação](docs/padrao-codificacao.md)

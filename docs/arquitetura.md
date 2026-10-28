@@ -1,7 +1,7 @@
 # Fase 3 Arquitetura do AnomaliData
 
 Este documento consolida a arquitetura da primeira versão do AnomaliData. As
-decisões preservam o Termo de Referência v1.3, o Roteiro de Entrevista v1.3 e as
+decisões preservam o Termo de Referência v1.4, o Roteiro de Entrevista v1.3 e as
 estruturas medidas na Fase 2.
 
 ## 1. Visão geral da solução
@@ -179,11 +179,11 @@ adaptador SQLite da fase de construção obedecerá aos mesmos contratos.
 | Critério | Elementos de arquitetura que o sustentam | Verificação prevista |
 |---|---|---|
 | CA-01 | Adaptador CSV/XLSX, caso de uso de importação e `RegistroCompra` | Carregar a base e comparar a contagem. |
-| CA-02 | Índice histórico, serviço de análise e base sintética anotada | Confirmar no mínimo 45 das 50 anomalias. |
+| CA-02 | Índice histórico, serviço de análise e `data/validacao/anomalias_esperadas.csv` | Confirmar no mínimo 45 das 50 anomalias. |
 | CA-03 | Parâmetros configuráveis e serviço de avaliação | Contar no máximo 15 falsos positivos. |
 | CA-04 | `AlertaAnomalia`, `alert` e `alert_factor` | Inspecionar pontuação e ao menos um fator. |
 | CA-05 | Invariante de `ResultadoAnalise` e índice `(analysis_id, score DESC)` | Conferir ordem decrescente. |
-| CA-06 | Estrutura indexada e medição de duração no resultado | Medir três execuções de 10.000 registros. |
+| CA-06 | Estrutura indexada, medição de duração e `data/validacao/base_validacao_10000.csv` | Medir três execuções de 10.000 registros. |
 | CA-07 | `AnaliseRegistrada`, parâmetros e gerador de relatório | Comparar relatório e resultado persistido. |
 | CA-08 | Camada de apresentação e manual de instalação e uso | Executar o roteiro com outra pessoa. |
 | CA-09 | Adaptador de entrada, validadores e contagem de duplicidades | Exercitar os três arquivos inválidos previstos. |

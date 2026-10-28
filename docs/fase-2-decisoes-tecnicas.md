@@ -2,13 +2,13 @@
 
 ## Base das decisões
 
-As estimativas vieram do Termo de Referência v1.3 e do Roteiro de Entrevista
+As estimativas vieram do Termo de Referência v1.4 e do Roteiro de Entrevista
 v1.3. O processo operacional reúne aproximadamente 10.000 registros de compras
 por mês e pode chegar a 20.000 em períodos de pico. A conferência manual leva
 entre quatro e oito horas. Esses valores descrevem o contexto relatado e não
 alteram os critérios formais de aceitação.
 
-A base formal de validação terá 10.000 registros, distribuídos em 100 produtos,
+A base formal de validação contém 10.000 registros, distribuídos em 100 produtos,
 20 fornecedores e 12 meses, com 50 anomalias conhecidas. O sistema deverá
 identificar pelo menos 45 delas, emitir no máximo 15 falsos positivos e concluir
 a análise em até 30 segundos. Os limites de marcação serão configuráveis. A
@@ -17,8 +17,22 @@ fornecedor.
 
 ## Repositório e padrão de codificação
 
-O repositório usa uma estrutura `src`, separa domínio, aplicação, testes,
-documentação e medições. O padrão completo está em `docs/padrao-codificacao.md`.
+O repositório usa uma estrutura `src` e separa domínio, aplicação, persistência,
+testes, documentação, medições e dados de validação. O padrão completo está em
+`docs/padrao-codificacao.md`.
+
+```text
+AnomaliData/
+├── benchmarks/
+├── data/validacao/
+├── docs/
+├── scripts/
+├── src/anomalidata/
+│   ├── aplicacao/
+│   ├── dominio/
+│   └── persistencia/
+└── tests/
+```
 
 ## Operações e volumes
 
@@ -44,6 +58,15 @@ de 12 meses definida no Termo de Referência.
 | Índice histórico | `dict[ChaveHistorica, EstatisticaHistorica]` | Cada registro consulta e atualiza a chave formada por produto e fornecedor. O dicionário evita percorrer até 2.000 grupos e oferece acesso médio constante. |
 | Alertas | `list[AlertaAnomalia]` ordenada uma vez | Os alertas são produzidos sequencialmente e exibidos em ordem decrescente de pontuação. Na execução aceita, a lista terá no máximo 65 itens e será ordenada apenas ao final. |
 | Revisões | `dict[str, RevisaoAlerta]` | A operação predominante localiza um alerta pelo identificador para incluir ou alterar sua classificação. O acesso médio constante facilita persistir a revisão ativa de cada alerta. |
+
+### Alternativa descartada
+
+Foi descartada a manutenção dos grupos históricos em uma lista percorrida
+linearmente para cada registro. Embora simples, essa estratégia exigiu 9.095.848
+comparações na base de 10.000 registros e 19.063.881 no ensaio de 20.000. O
+dicionário realizou uma consulta por registro nos mesmos volumes. Listas
+continuam adequadas para os registros importados e os alertas, cujas operações
+predominantes são inserção e percurso sequencial, mas não para localizar grupos.
 
 ## Medição do algoritmo crítico
 
