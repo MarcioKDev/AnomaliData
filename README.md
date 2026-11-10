@@ -113,6 +113,8 @@ como variável durante a análise.
 
 ## Documentação
 
+- [Entrega e defesa da Fase 6](docs/fase-6-entrega-defesa.md)
+- [Instalação pelo pacote offline](docs/instalacao-entrega.md)
 - [Integração e verificação da Fase 5](docs/fase-5-integracao-verificacao.md)
 - [Plano e resultados da Fase 5](docs/resultados-testes-fase-5.md)
 - [Construção da Fase 4](docs/fase-4-construcao.md)
