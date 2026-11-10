@@ -2,15 +2,15 @@
 
 Repositório acadêmico do TCC de Engenharia de Software da UNIASSELVI.
 
-O AnomaliData analisará registros de compras e destacará preços ou quantidades
-que se desviem do histórico do grupo selecionado. A demonstração principal usará
-o preço unitário agrupado por produto e fornecedor. A primeira versão trabalhará
-com arquivos CSV ou XLSX e uma base sintética versionada com anomalias conhecidas.
+O AnomaliData analisa registros de compras e destaca preços ou quantidades
+que se desviam do histórico do grupo selecionado. A demonstração principal usa
+o preço unitário agrupado por produto e fornecedor, com uma base sintética
+versionada e anomalias conhecidas.
 
 ## Estado atual
 
 Este repositório contém as decisões técnicas da Fase 2, a arquitetura da Fase 3
-e o incremento executável da Fase 4:
+e o incremento executável da Fase 4, integrado e verificado na Fase 5:
 
 - padrão de codificação;
 - modelo inicial do domínio;
@@ -23,7 +23,8 @@ e o incremento executável da Fase 4:
 - base formal de validação e gabarito separado com 50 anomalias;
 - importação CSV/XLSX, análise configurável e alertas explicáveis;
 - interface desktop com revisão, histórico e relatório HTML;
-- execução assíncrona do fluxo pesado, sem congelar a interface.
+- execução assíncrona de importação, análise e gravação;
+- contrato de entrada versionado e resultados de verificação por critério.
 
 ## Critérios da validação
 
@@ -39,8 +40,9 @@ de pico descrevem o contexto operacional levantado na entrevista. Eles não
 substituem a base formal de validação definida no Termo de Referência.
 
 Na configuração principal (produto + fornecedor, preço unitário e limiar de
-25%), a construção identifica 45 das 50 anomalias, sem falsos positivos, e
-conclui o núcleo da análise em aproximadamente 0,03 segundo no ambiente local.
+25%), a Fase 5 identificou 45 das 50 anomalias, com zero falsos positivos.
+As três medições de importação, análise e gravação ficaram abaixo de 0,14 s no
+ambiente de teste. O CA-08 depende da execução do manual por terceiro.
 
 ## Requisitos
 
@@ -111,6 +113,8 @@ como variável durante a análise.
 
 ## Documentação
 
+- [Integração e verificação da Fase 5](docs/fase-5-integracao-verificacao.md)
+- [Plano e resultados da Fase 5](docs/resultados-testes-fase-5.md)
 - [Construção da Fase 4](docs/fase-4-construcao.md)
 - [Manual de instalação e uso](docs/manual-execucao.md)
 - [Mapa de navegação](docs/mapa-navegacao.md)

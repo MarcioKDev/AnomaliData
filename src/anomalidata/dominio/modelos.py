@@ -71,10 +71,10 @@ class RegistroCompra:
             "fornecedor",
             _texto_obrigatorio(self.fornecedor, "Fornecedor"),
         )
-        if self.quantidade <= 0:
-            raise DadoInvalidoError("Quantidade deve ser maior que zero")
-        if self.preco_unitario <= 0:
-            raise DadoInvalidoError("Preço unitário deve ser maior que zero")
+        if not self.quantidade.is_finite() or self.quantidade <= 0:
+            raise DadoInvalidoError("Quantidade deve ser finita e maior que zero")
+        if not self.preco_unitario.is_finite() or self.preco_unitario <= 0:
+            raise DadoInvalidoError("Preço unitário deve ser finito e maior que zero")
         if self.data_compra > date.today():
             raise DadoInvalidoError("Data da compra não pode estar no futuro")
 
@@ -196,8 +196,10 @@ class ParametrosAnalise:
             "coluna_numerica",
             _texto_obrigatorio(self.coluna_numerica, "Coluna numérica"),
         )
-        if self.limiar_percentual <= 0:
-            raise DadoInvalidoError("Limiar percentual deve ser maior que zero")
+        if not self.limiar_percentual.is_finite() or self.limiar_percentual <= 0:
+            raise DadoInvalidoError(
+                "Limiar percentual deve ser finito e maior que zero"
+            )
 
 
 @dataclass(frozen=True, slots=True)

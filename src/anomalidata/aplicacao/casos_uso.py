@@ -2,16 +2,20 @@
 
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 
 from anomalidata.dominio import (
     AnaliseRegistrada,
+    DadoInvalidoError,
     ParametrosAnalise,
     RepositorioAnalises,
 )
 
 from .analise import executar_analise
 from .importacao import carregar_arquivo
+
+logger = logging.getLogger(__name__)
 
 
 class ExecutarAnaliseArquivo:
@@ -26,7 +30,18 @@ class ExecutarAnaliseArquivo:
         parametros: ParametrosAnalise,
     ) -> AnaliseRegistrada:
         arquivo = Path(caminho)
-        importacao = carregar_arquivo(arquivo)
+        try:
+            importacao = carregar_arquivo(arquivo)
+        except DadoInvalidoError as erro:
+            logger.warning("Importação rejeitada: %s", erro)
+            raise
+        except OSError as erro:
+            logger.warning("Importação rejeitada: falha de leitura (%s)", erro.errno)
+            raise DadoInvalidoError(
+                "Não foi possível ler o arquivo de entrada"
+            ) from erro
+        if importacao.linhas_duplicadas:
+            logger.info("Linhas duplicadas ignoradas: %d", importacao.linhas_duplicadas)
         analise = executar_analise(
             importacao.registros,
             parametros,

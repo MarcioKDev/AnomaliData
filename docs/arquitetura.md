@@ -182,6 +182,11 @@ leitura após a gravação.
 
 ## 6. Rastreabilidade
 
+Na Fase 5, o [contrato v1.0](contrato-integracao.md) documenta a fronteira entre
+a origem dos arquivos e a aplicação. Os
+[resultados de integração](resultados-testes-fase-5.md) registram a execução
+do fluxo local até os widgets Tkinter e a recuperação pelo histórico SQLite.
+
 | Critério | Elementos de arquitetura que o sustentam | Verificação prevista |
 |---|---|---|
 | CA-01 | Adaptador CSV/XLSX, caso de uso de importação e `RegistroCompra` | Carregar a base e comparar a contagem. |

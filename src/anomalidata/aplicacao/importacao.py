@@ -54,12 +54,15 @@ def _data(valor: object, linha: int) -> date:
 
 
 def _validar_colunas(colunas: Iterable[object]) -> tuple[str, ...]:
-    nomes = tuple(str(coluna).strip() for coluna in colunas if coluna is not None)
+    nomes = tuple("" if coluna is None else str(coluna).strip() for coluna in colunas)
     ausentes = [coluna for coluna in COLUNAS_OBRIGATORIAS if coluna not in nomes]
     if ausentes:
         raise DadoInvalidoError(
             "Colunas obrigatórias ausentes: " + ", ".join(ausentes)
         )
+    preenchidos = tuple(nome for nome in nomes if nome)
+    if len(preenchidos) != len(set(preenchidos)):
+        raise DadoInvalidoError("O cabeçalho contém nomes de coluna repetidos")
     return nomes
 
 
@@ -75,6 +78,12 @@ def _converter_linhas(
     for numero, linha in enumerate(linhas, start=2):
         if not any(valor not in (None, "") for valor in linha.values()):
             continue
+        if None in linha:
+            raise DadoInvalidoError(f"Linha {numero}: campos além do cabeçalho")
+        for coluna in COLUNAS_OBRIGATORIAS:
+            valor = linha.get(coluna)
+            if valor is None or not str(valor).strip():
+                raise DadoInvalidoError(f"Linha {numero}: {coluna} deve ser informado")
         total += 1
         assinatura = tuple(
             str(linha.get(coluna, "")).strip() for coluna in COLUNAS_OBRIGATORIAS
@@ -115,17 +124,29 @@ def _converter_linhas(
 
 def _carregar_csv(caminho: Path) -> ResultadoImportacao:
     with caminho.open(encoding="utf-8-sig", newline="") as arquivo:
-        amostra = arquivo.read(4096)
+        cabecalho = arquivo.readline()
         arquivo.seek(0)
+        # O cabeçalho define o separador mesmo se alguma linha estiver truncada.
+        delimitador = max(
+            (",", ";", "\t"),
+            key=lambda sep: len(
+                {
+                    campo.strip()
+                    for campo in next(csv.reader([cabecalho], delimiter=sep), ())
+                }
+                & set(COLUNAS_OBRIGATORIAS)
+            ),
+        )
+        leitor = csv.DictReader(arquivo, delimiter=delimitador, strict=True)
         try:
-            dialeto = csv.Sniffer().sniff(amostra, delimiters=",;\t")
-        except csv.Error:
-            dialeto = csv.excel
-        leitor = csv.DictReader(arquivo, dialect=dialeto)
-        if leitor.fieldnames is None:
-            raise DadoInvalidoError("O arquivo CSV não possui cabeçalho")
-        _validar_colunas(leitor.fieldnames)
-        return _converter_linhas(leitor)
+            if leitor.fieldnames is None:
+                raise DadoInvalidoError("O arquivo CSV não possui cabeçalho")
+            leitor.fieldnames = _validar_colunas(leitor.fieldnames)
+            return _converter_linhas(leitor)
+        except csv.Error as erro:
+            raise DadoInvalidoError(
+                f"Linha {leitor.reader.line_num}: CSV malformado"
+            ) from erro
 
 
 def _carregar_xlsx(caminho: Path) -> ResultadoImportacao:
@@ -133,7 +154,7 @@ def _carregar_xlsx(caminho: Path) -> ResultadoImportacao:
 
     workbook = load_workbook(caminho, read_only=True, data_only=True)
     try:
-        planilha = workbook.active
+        planilha = workbook.worksheets[0]
         linhas = planilha.iter_rows(values_only=True)
         try:
             cabecalho = next(linhas)

@@ -6,6 +6,8 @@
 - sistema com suporte ao Tkinter;
 - acesso local ao arquivo CSV ou XLSX a ser analisado.
 
+No terminal gráfico, `python -m tkinter` deve abrir a janela de teste do Tk.
+
 Não é necessária conexão com a internet durante o uso. A internet só pode ser
 necessária uma vez para instalar a dependência `openpyxl`, caso ela ainda não
 esteja disponível no ambiente.
@@ -62,9 +64,10 @@ O arquivo precisa conter estas colunas:
 id_registro,codigo_produto,fornecedor,quantidade,preco_unitario,data_compra
 ```
 
-Datas devem usar `AAAA-MM-DD`. Quantidade e preço devem ser positivos. O CSV
+Datas devem usar `AAAA-MM-DD`. Quantidade e preço devem ser finitos e positivos. O CSV
 pode usar vírgula, ponto e vírgula ou tabulação; arquivos XLSX usam a primeira
-planilha. Linhas exatamente duplicadas são contadas e ignoradas.
+planilha. Linhas exatamente duplicadas são contadas e ignoradas. Consulte o
+[contrato de integração v1.0](contrato-integracao.md).
 
 ## 6. Mensagens frequentes
 
@@ -74,7 +77,8 @@ planilha. Linhas exatamente duplicadas são contadas e ignoradas.
 | Colunas obrigatórias ausentes | ajuste o cabeçalho conforme a seção 5 |
 | Campo deve conter número válido | corrija a linha indicada pela mensagem |
 | Data deve usar AAAA-MM-DD | normalize a data da linha indicada |
-| Limiar deve ser maior que zero | informe um percentual positivo |
+| Campo obrigatório deve ser informado | preencha a célula indicada e repita a análise |
+| Limiar percentual deve ser finito e maior que zero | informe um percentual positivo |
 
 ## 7. Executar a verificação técnica
 
@@ -82,6 +86,18 @@ planilha. Linhas exatamente duplicadas são contadas e ignoradas.
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
+Execute em uma sessão gráfica para incluir o caso com widgets Tkinter. Em
+ambiente sem servidor gráfico, o unittest indica que esse caso foi pulado.
+
 O critério CA-08 somente pode ser considerado concluído depois que uma pessoa que
 não participou do desenvolvimento executar este roteiro e a evidência for
 registrada.
+
+## 8. Registro do ensaio independente
+
+Entregue apenas este manual a uma pessoa alheia ao desenvolvimento, em ambiente
+sem configuração prévia do AnomaliData. Observe a instalação e a execução da
+demonstração formal. Registre data, sistema operacional, versão ou commit usado,
+passos concluídos, contagens observadas e qualquer intervenção necessária.
+Registre o CA-08 como aprovado somente se o participante concluir a análise
+seguindo o manual.
