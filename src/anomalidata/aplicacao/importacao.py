@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
-from typing import Iterable, Mapping
+from typing import Iterable, Iterator, Mapping
 
 from anomalidata.dominio import DadoInvalidoError, RegistroCompra
 
@@ -67,7 +67,7 @@ def _validar_colunas(colunas: Iterable[object]) -> tuple[str, ...]:
 
 
 def _converter_linhas(
-    linhas: Iterable[Mapping[str, object]],
+    linhas: Iterable[tuple[int, Mapping[str, object]]],
 ) -> ResultadoImportacao:
     registros: list[RegistroCompra] = []
     assinaturas: set[tuple[str, ...]] = set()
@@ -75,11 +75,9 @@ def _converter_linhas(
     duplicadas = 0
     total = 0
 
-    for numero, linha in enumerate(linhas, start=2):
+    for numero, linha in linhas:
         if not any(valor not in (None, "") for valor in linha.values()):
             continue
-        if None in linha:
-            raise DadoInvalidoError(f"Linha {numero}: campos além do cabeçalho")
         for coluna in COLUNAS_OBRIGATORIAS:
             valor = linha.get(coluna)
             if valor is None or not str(valor).strip():
@@ -137,15 +135,27 @@ def _carregar_csv(caminho: Path) -> ResultadoImportacao:
                 & set(COLUNAS_OBRIGATORIAS)
             ),
         )
-        leitor = csv.DictReader(arquivo, delimiter=delimitador, strict=True)
+        leitor = csv.reader(arquivo, delimiter=delimitador, strict=True)
         try:
-            if leitor.fieldnames is None:
+            campos = next(leitor, None)
+            if campos is None:
                 raise DadoInvalidoError("O arquivo CSV não possui cabeçalho")
-            leitor.fieldnames = _validar_colunas(leitor.fieldnames)
-            return _converter_linhas(leitor)
+            colunas = _validar_colunas(campos)
+
+            def linhas_csv() -> Iterator[tuple[int, dict[str, str]]]:
+                numero = leitor.line_num + 1
+                for valores in leitor:
+                    if len(valores) > len(colunas):
+                        raise DadoInvalidoError(
+                            f"Linha {numero}: campos além do cabeçalho"
+                        )
+                    yield numero, dict(zip(colunas, valores, strict=False))
+                    numero = leitor.line_num + 1
+
+            return _converter_linhas(linhas_csv())
         except csv.Error as erro:
             raise DadoInvalidoError(
-                f"Linha {leitor.reader.line_num}: CSV malformado"
+                f"Linha {leitor.line_num}: CSV malformado"
             ) from erro
 
 
@@ -162,7 +172,7 @@ def _carregar_xlsx(caminho: Path) -> ResultadoImportacao:
             raise DadoInvalidoError("A planilha não possui cabeçalho") from error
         colunas = _validar_colunas(cabecalho)
         mapas = (dict(zip(colunas, valores, strict=False)) for valores in linhas)
-        return _converter_linhas(mapas)
+        return _converter_linhas(enumerate(mapas, start=2))
     finally:
         workbook.close()
 

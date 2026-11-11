@@ -170,6 +170,10 @@ class ResultadoAnalise:
         if pontuacoes != sorted(pontuacoes, reverse=True):
             raise DadoInvalidoError("Alertas devem estar em ordem de pontuação")
 
+    @property
+    def total_lidos(self) -> int:
+        return self.total_registros + self.linhas_duplicadas
+
 
 @dataclass(frozen=True, slots=True)
 class ParametrosAnalise:

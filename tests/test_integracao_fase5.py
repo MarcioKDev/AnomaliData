@@ -9,6 +9,7 @@ from tempfile import TemporaryDirectory
 from threading import Event
 from time import monotonic, perf_counter
 from unittest.mock import patch
+from urllib.parse import unquote, urlsplit
 
 from openpyxl import Workbook
 
@@ -18,6 +19,7 @@ from anomalidata.aplicacao import (
     carregar_ids_anomalos,
     gerar_relatorio_html,
 )
+from anomalidata.aplicacao.formatacao import numero_pt
 from anomalidata.dominio import (
     DadoInvalidoError,
     ParametrosAnalise,
@@ -78,10 +80,10 @@ class IntegracaoFase5Test(unittest.TestCase):
         relatorio = gerar_relatorio_html(analise, self.pasta / "relatorio.html")
         html = relatorio.read_text(encoding="utf-8")
         for termo in (
-            ARQUIVO.name, "Código do produto, Fornecedor", "Preço unitário", "25%"
+            ARQUIVO.name, "Código do produto, Fornecedor", "Preço unitário", "25,00%"
         ):
             self.assertIn(termo, html)
-        ids_html = findall(r"<tr><td>(REG-\d+)</td>", html)
+        ids_html = findall(r'<th scope="row">(REG-\d+)', html)
         self.assertEqual([a.registro.id_registro for a in resultado.alertas], ids_html)
         print(
             f"\nCT-02/03/06/07: VP={metricas.verdadeiros_positivos}, "
@@ -197,7 +199,7 @@ class InterfaceFase5Test(unittest.TestCase):
         app.raiz.update()
         app.raiz.withdraw()
         self.assertTrue(app.botao_analisar.instate(("!disabled",)))
-        self.assertIn("10000 registros", app.resumo_importacao.get())
+        self.assertIn("Registros lidos: 10.000", app.resumo_importacao.get())
         self.assertEqual(1, app.abas.index(app.abas.select()))
         itens = app.tabela_alertas.get_children()
         self.assertEqual(45, len(itens))
@@ -205,15 +207,34 @@ class InterfaceFase5Test(unittest.TestCase):
         for item in itens:
             app.tabela_alertas.selection_set(item)
             app._mostrar_alerta_selecionado()
-            texto = app.detalhes_alerta.get("1.0", "end")
+            alerta = app.alertas[item]
             desvio = app.tabela_alertas.set(item, "desvio")
-            self.assertIn(f"Desvio: {desvio}", texto)
-            self.assertRegex(texto, r"Motivo: .+")
-            desvios.append(Decimal(desvio.rstrip("%")))
+            motivo = app.motivo_alerta.get("1.0", "end-1c")
+            self.assertEqual(desvio, app.desvio_alerta.get())
+            self.assertEqual(numero_pt(alerta.registro.preco_unitario, 2), app.valor_alerta.get())
+            self.assertEqual(numero_pt(alerta.valor_referencia, 2), app.referencia_alerta.get())
+            self.assertRegex(motivo, r"Preço unitário (acima|abaixo) da mediana")
+            self.assertNotIn(r"\n", motivo)
+            self.assertNotIn("preco_unitario", motivo)
+            desvios.append(Decimal(desvio.rstrip("%").replace(".", "").replace(",", ".")))
         self.assertEqual(sorted(desvios, reverse=True), desvios)
         app.classificacao_var.set("Anomalia confirmada")
         app.observacao.insert("1.0", "Conferido")
         app._salvar_revisao()
+        app.filtro_var.set("Anomalia confirmada")
+        self.assertEqual((item,), app.tabela_alertas.get_children())
+        app.busca_var.set("registro-ausente")
+        self.assertFalse(app.tabela_alertas.get_children())
+        app.busca_var.set("")
+        self.assertEqual((item,), app.tabela_alertas.get_children())
+        html = app._gerar_relatorio(self.pasta / "revisado.html")
+        self.assertIn('<tr data-estado="anomalia_confirmada"', html.read_text("utf-8"))
+        self.assertIn("Conferido", html.read_text("utf-8"))
+        with patch("webbrowser.open", return_value=True) as navegador:
+            app._abrir_relatorio()
+        uri = urlsplit(navegador.call_args.args[0])
+        self.assertEqual("file", uri.scheme)
+        self.assertIn("Conferido", Path(unquote(uri.path)).read_text("utf-8"))
         original = app.analise_atual
         self.fechar()
 
@@ -240,6 +261,45 @@ class InterfaceFase5Test(unittest.TestCase):
             1, app.repositorio_analises.excluir_expiradas(original.expira_em)
         )
         self.assertIsNone(app.repositorio_revisoes.buscar_por_alerta(item))
+
+    def test_contagem_e_rascunho_durante_busca(self):
+        app = self.app
+        entrada = self.pasta / "duplicadas.csv"
+        linhas = (
+            LINHA, ("R2", *LINHA[1:]), ("R3", *LINHA[1:3], 100, *LINHA[4:]), LINHA,
+        )
+        with entrada.open("w", encoding="utf-8", newline="") as arquivo:
+            escritor = csv.writer(arquivo)
+            escritor.writerow(CABECALHO)
+            escritor.writerows(linhas)
+
+        app.caminho_var.set(str(entrada))
+        app._iniciar_analise()
+        self.esperar(lambda: app.analise_atual is not None)
+        resumo = app.resumo_importacao.get()
+        self.assertIn("Registros lidos: 4", resumo)
+        self.assertIn("Analisados: 3", resumo)
+        self.assertIn("Duplicidades: 1", resumo)
+        self.assertEqual("4", app.metricas[0].get())
+
+        item, = app.tabela_alertas.selection()
+        app.observacao.insert("1.0", "Conferência em andamento")
+        app.classificacao_var.set("Anomalia confirmada")
+        app.busca_var.set("R3")
+        self.assertEqual((item,), app.tabela_alertas.selection())
+        self.assertEqual("Conferência em andamento", app.observacao.get("1.0", "end-1c"))
+        app.busca_var.set("sem correspondência")
+        self.assertFalse(app.tabela_alertas.selection())
+        app.busca_var.set("")
+        self.assertEqual((item,), app.tabela_alertas.selection())
+        self.assertEqual("Conferência em andamento", app.observacao.get("1.0", "end-1c"))
+        self.assertEqual("Anomalia confirmada", app.classificacao_var.get())
+        self.assertIsNone(app.repositorio_revisoes.buscar_por_alerta(item))
+        app._salvar_revisao()
+        self.assertEqual(
+            "Conferência em andamento",
+            app.repositorio_revisoes.buscar_por_alerta(item).observacao,
+        )
 
 
 if __name__ == "__main__":

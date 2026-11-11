@@ -327,8 +327,23 @@ class RepositorioRevisoesSQLite:
                 "SELECT * FROM alert_review WHERE alert_id = ?",
                 (id_alerta,),
             ).fetchone()
-        if linha is None:
-            return None
+        return self._converter(linha) if linha is not None else None
+
+    def listar_por_analise(self, id_analise: str) -> dict[str, RevisaoAlerta]:
+        """Carrega as classificações salvas para o resultado exibido ou exportado."""
+        with self.banco.conectar() as conexao:
+            linhas = conexao.execute(
+                """
+                SELECT revisao.* FROM alert_review AS revisao
+                JOIN alert ON alert.id = revisao.alert_id
+                WHERE alert.analysis_id = ?
+                """,
+                (id_analise,),
+            ).fetchall()
+        return {linha["alert_id"]: self._converter(linha) for linha in linhas}
+
+    @staticmethod
+    def _converter(linha: sqlite3.Row) -> RevisaoAlerta:
         return RevisaoAlerta(
             id_alerta=linha["alert_id"],
             classificacao=ClassificacaoAlerta(linha["classification"]),

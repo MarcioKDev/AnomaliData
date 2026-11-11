@@ -78,6 +78,19 @@ class ImportacaoTest(unittest.TestCase):
             ):
                 carregar_arquivo(caminho)
 
+    def test_indica_linha_fisica_apos_linha_vazia_e_campo_multilinha(self) -> None:
+        with TemporaryDirectory() as diretorio:
+            caminho = Path(diretorio) / "compras.csv"
+            caminho.write_text(
+                ",".join(CABECALHO)
+                + '\nR-1,P-1,"Fornecedor\nComercial",3,10.50,2025-01-10'
+                + "\n\nR-2,P-1,F-1,abc,10.50,2025-01-10\n",
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(DadoInvalidoError, "Linha 5: quantidade"):
+                carregar_arquivo(caminho)
+
     def test_carrega_xlsx(self) -> None:
         from openpyxl import Workbook
 
