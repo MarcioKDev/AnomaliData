@@ -153,12 +153,11 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 | RF-07 | aba de revisão e `RepositorioRevisoesSQLite` | `test_persistencia_sqlite.py` |
 | RF-08 | migrações e `RepositorioAnalisesSQLite` | `test_persistencia_sqlite.py` |
 | RNF-01 e RNF-02 | base anotada e avaliador | teste de aceitação integral |
-| RNF-03 | manual de execução | validação por terceiro ainda deverá ser registrada |
+| RNF-03 | manual de execução | [ensaio independente registrado na Fase 6](fase-6-entrega-defesa.md#ensaio-independente-ca-08) |
 
-## 10. Conclusão e pendência controlada
+## 10. Conclusão
 
 O incremento executável cobre os oito itens do escopo e atende, de forma
-automatizada, aos critérios técnicos que podem ser verificados neste ambiente.
-A única comprovação ainda dependente de outra pessoa é o CA-08: o manual está
-pronto, mas a execução independente por terceiro deve ser registrada antes do
-aceite final. Essa pendência não é ocultada nem substituída por simulação.
+automatizada, aos critérios técnicos verificados nesta fase. O relato do
+ensaio independente do CA-08 consta na
+[Fase 6](fase-6-entrega-defesa.md#ensaio-independente-ca-08).
