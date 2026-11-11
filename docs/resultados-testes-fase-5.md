@@ -20,7 +20,7 @@ O diálogo de erro foi interceptado para conferir a mensagem enviada à tela.
 | CT-05 | A tabela exibiu os desvios em ordem decrescente. | Aprovado |
 | CT-06 | 0,1167 s, 0,1310 s e 0,1182 s da importação até a gravação SQLite. | Aprovado |
 | CT-07 | O HTML incluiu a base, os parâmetros e os 45 IDs, na ordem do resultado. | Aprovado |
-| CT-08 | Manual disponível. A execução por terceiro ainda precisa ser registrada. | Pendente |
+| CT-08 | Evidência ausente na bateria desta fase. O relato do ensaio independente foi documentado na [Fase 6](fase-6-entrega-defesa.md#ensaio-independente-ca-08). | Registro posterior |
 | CT-09 | Coluna ausente e número inválido bloquearam a análise. O diálogo recebeu a causa da coluna ausente. A duplicidade gerou 1 registro analisado e 1 descarte contabilizado. | Aprovado |
 | CT-10 | Classificação confirmada e observação recuperadas na aplicação recriada. As alterações para justificada e pendente foram lidas de volta do banco. | Aprovado |
 | CT-11 | Agregado completo recuperado, expiração conferida e revisão removida no expurgo. Teste de esquema confirmou a ausência de coluna para o arquivo bruto. | Aprovado |

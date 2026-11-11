@@ -3,7 +3,7 @@
 ## Fluxo principal
 
 ```text
-Importar e analisar
+Nova análise
         │
         ├── arquivo ou configuração inválida ──> mensagem específica ──┐
         │                                                               │
@@ -11,7 +11,7 @@ Importar e analisar
                                       │
                                       ├── selecionar alerta
                                       ├── classificar/reclassificar
-                                      └── exportar relatório HTML
+                                      └── abrir relatório ou salvar HTML
 
 Histórico local ──> abrir resultado ──> Resultados e revisão
         │
@@ -26,7 +26,7 @@ Histórico local ──> abrir resultado ──> Resultados e revisão
 | Aplicação aberta | “Pronto para iniciar” | selecionar arquivo |
 | Processamento iniciado | barra de progresso e botão de execução desabilitado | navegar sem iniciar uma segunda execução |
 | Entrada inválida | mensagem com causa e, quando aplicável, linha | corrigir arquivo ou parâmetro |
-| Análise concluída | resumo com registros, duplicidades, alertas e duração | investigar alertas |
+| Análise concluída | total lido em resultados e resumo de analisados, duplicidades e alertas em Nova análise | investigar alertas |
 | Revisão salva | classificação atualizada na tabela | revisar outro alerta |
 | Histórico aberto | resultado restaurado sem reler o arquivo bruto | consultar ou exportar |
 

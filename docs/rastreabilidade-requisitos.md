@@ -32,7 +32,7 @@ contexto e as necessidades operacionais.
 | RN-01 - Comparar com o histórico do grupo e limiar configurável | Transversal | Seções 3.1 e 3.2 | C1 e C3 | Obrigatória | CA-02 a CA-06 |
 | RNF-01 - Encontrar 45 de 50 anomalias e limitar falsos positivos a 15 | Transversal | CA-02 e CA-03 | E4 e H1 | Obrigatória | CA-02 e CA-03 |
 | RNF-02 - Analisar 10.000 registros em até 30 segundos | Transversal | CA-06 | H1 | Obrigatória | CA-06 |
-| RNF-03 - Permitir execução por terceiro usando apenas o manual | Transversal | CA-08 | Sem evidência empírica; verificação futura | Obrigatória | CA-08 |
+| RNF-03 - Permitir execução por terceiro usando apenas o manual | Transversal | CA-08 | Ensaio independente [relatado na Fase 6](fase-6-entrega-defesa.md#ensaio-independente-ca-08) | Obrigatória | CA-08 |
 
 ## Evidências versionadas
 
@@ -55,7 +55,7 @@ contexto e as necessidades operacionais.
 
 ## Nota de versão
 
-O Termo de Referência v1.2 era a versão disponível na data da autoentrevista de
+O Termo de Referência registra a v1.2 em 23/09/2026, depois da autoentrevista de
 16/09/2026. A v1.3 harmonizou as respostas com as metas oficiais. A v1.4
 consolidou seleção e carregamento em um único item, reduzindo o escopo para oito
 itens, e detalhou o controle de alterações. Nenhuma meta de aceitação foi

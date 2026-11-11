@@ -9,8 +9,8 @@ versionada e anomalias conhecidas.
 
 ## Estado atual
 
-Este repositório contém as decisões técnicas da Fase 2, a arquitetura da Fase 3
-e o incremento executável da Fase 4, integrado e verificado na Fase 5:
+O AnomaliData 0.2.1 reúne o incremento executável, os testes e a documentação
+da [entrega da Fase 6](docs/fase-6-entrega-defesa.md):
 
 - padrão de codificação;
 - modelo inicial do domínio;
@@ -22,7 +22,7 @@ e o incremento executável da Fase 4, integrado e verificado na Fase 5:
 - oito fichas de requisitos funcionais, uma por item do escopo;
 - base formal de validação e gabarito separado com 50 anomalias;
 - importação CSV/XLSX, análise configurável e alertas explicáveis;
-- interface desktop com revisão, histórico e relatório HTML;
+- interface desktop com revisão, histórico e relatório HTML interativo;
 - execução assíncrona de importação, análise e gravação;
 - contrato de entrada versionado e resultados de verificação por critério.
 
@@ -42,7 +42,8 @@ substituem a base formal de validação definida no Termo de Referência.
 Na configuração principal (produto + fornecedor, preço unitário e limiar de
 25%), a Fase 5 identificou 45 das 50 anomalias, com zero falsos positivos.
 As três medições de importação, análise e gravação ficaram abaixo de 0,14 s no
-ambiente de teste. O CA-08 depende da execução do manual por terceiro.
+ambiente de teste. A [Fase 6](docs/fase-6-entrega-defesa.md#ensaio-independente-ca-08)
+registra o ensaio independente do CA-08.
 
 ## Requisitos
 

@@ -7,7 +7,8 @@
 O AnomaliData integra a importação de CSV/XLSX, a validação do domínio,
 a análise configurável, a gravação no SQLite e a apresentação em Tkinter.
 Na verificação, a base formal produziu 45 detecções em 50 anomalias e zero
-falsos positivos. O CA-08 aguarda a execução do manual por terceiro.
+falsos positivos. O ensaio independente do CA-08 está
+[registrado na Fase 6](fase-6-entrega-defesa.md#ensaio-independente-ca-08).
 
 | Item do roteiro | Entrega e evidência |
 |---|---|
@@ -15,7 +16,7 @@ falsos positivos. O CA-08 aguarda a execução do manual por terceiro.
 | 27 | Fluxo arquivo → importação → domínio → análise → SQLite → tela. O caso com Tkinter executa o caminho real e recupera a revisão no histórico. |
 | 28 | Cinco ensaios de falha local, incluindo recuperação da origem, entrada inválida e janela oculta. [Resultados](resultados-testes-fase-5.md#falhas-provocadas) |
 | 29 | Onze casos com pré-condição e resultado esperado, um para cada critério do Termo v1.4. [Plano](plano-testes-fase-5.md) |
-| 30 | Bateria registrada com 31 testes automatizados aprovados e CA-08 pendente. [Aceitação](resultados-testes-fase-5.md#aceitação) |
+| 30 | Bateria registrada com 31 testes automatizados aprovados. [Aceitação](resultados-testes-fase-5.md#aceitação) |
 | 31 | DF-001 e DF-002 corrigidos e encerrados após repetir os casos que os revelaram. [Defeitos](resultados-testes-fase-5.md#defeitos-e-reexecução) |
 | 32 | Cinco conjuntos técnicos consolidados abaixo. |
 

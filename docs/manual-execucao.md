@@ -14,6 +14,9 @@ esteja disponível no ambiente.
 
 ## 2. Instalação
 
+Para usar os arquivos instaláveis incluídos no ZIP, siga o
+[manual do pacote offline](instalacao-entrega.md).
+
 Na pasta do repositório:
 
 ```bash
@@ -39,16 +42,21 @@ não é copiado para esse banco.
 
 ## 4. Executar a demonstração formal
 
-1. Abra **Importar e analisar**.
+1. Abra **Nova análise**.
 2. Selecione `data/validacao/base_validacao_10000.csv`.
 3. Mantenha **Produto e fornecedor** como agrupamento.
 4. Mantenha **Preço unitário** como coluna analisada.
 5. Informe o limiar **25**.
 6. Selecione **Executar análise**.
-7. Confira o resumo e abra **Resultados e revisão**.
+7. Confira **Registros lidos** em **Resultados e revisão**. Em **Nova análise**,
+   o resumo também exibe os totais analisados e de duplicidades.
 8. Selecione um alerta para visualizar valor, referência, desvio e motivo.
-9. Escolha uma classificação, registre uma observação e salve.
-10. Exporte o relatório HTML, se necessário.
+9. Escolha uma classificação, registre uma observação e clique em
+   **Salvar revisão**. A busca e os filtros preservam o rascunho enquanto a
+   análise está aberta.
+10. Use **Abrir relatório** para consultar as evidências no navegador. Use a
+    busca e a classificação para localizar alertas. **Salvar HTML…**
+    guarda uma cópia com as classificações e observações salvas naquele momento.
 11. Em **Histórico local**, abra novamente o resultado para confirmar a
     persistência da análise e da classificação.
 
@@ -89,15 +97,10 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 Execute em uma sessão gráfica para incluir o caso com widgets Tkinter. Em
 ambiente sem servidor gráfico, o unittest indica que esse caso foi pulado.
 
-O critério CA-08 somente pode ser considerado concluído depois que uma pessoa que
-não participou do desenvolvimento executar este roteiro e a evidência for
-registrada.
-
 ## 8. Registro do ensaio independente
 
 Entregue apenas este manual a uma pessoa alheia ao desenvolvimento, em ambiente
 sem configuração prévia do AnomaliData. Observe a instalação e a execução da
 demonstração formal. Registre data, sistema operacional, versão ou commit usado,
 passos concluídos, contagens observadas e qualquer intervenção necessária.
-Registre o CA-08 como aprovado somente se o participante concluir a análise
-seguindo o manual.
+O registro do ensaio relatado está na [Fase 6](fase-6-entrega-defesa.md#ensaio-independente-ca-08).
