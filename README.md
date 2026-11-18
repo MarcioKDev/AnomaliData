@@ -14,6 +14,21 @@ consolida D1 a D9 em 42 páginas, com índice na primeira página, numeração
 contínua e referências entre requisitos, implementação e evidências. Os
 [nove PDFs individuais](docs/entrega-final/) estão disponíveis para consulta.
 
+A versão 1.0 identifica o dossiê. Cada componente preserva a versão de sua
+fonte documental, indicada também no índice, no cabeçalho e no rodapé:
+
+| Peça | Documento | Versão |
+|---|---|---|
+| D1 | [Termo de referência](docs/entrega-final/D1_Termo_de_Referencia_v1.4.pdf) | 1.4 |
+| D2 | [Registro do levantamento](docs/entrega-final/D2_Registro_do_Levantamento_v1.4.pdf) | 1.4 |
+| D3 | [Especificação de requisitos](docs/entrega-final/D3_Especificacao_de_Requisitos_v1.0.pdf) | 1.0 |
+| D4 | [Decisões técnicas da Fase 2](docs/entrega-final/D4_Decisoes_Tecnicas_v1.3.pdf) | 1.3 |
+| D5 | [Arquitetura da Fase 3](docs/entrega-final/D5_Arquitetura_Dominio_e_Dados_v1.1.pdf) | 1.1 |
+| D6 | [Plano e resultados da Fase 5](docs/entrega-final/D6_Plano_e_Resultado_dos_Testes_v1.0.pdf) | 1.0 |
+| D7 | [Manual consolidado da Fase 6](docs/entrega-final/D7_Manual_de_Instalacao_e_Uso_v1.1.pdf) | 1.1 |
+| D8 | [Encerramento consolidado da Fase 6](docs/entrega-final/D8_Relatorio_de_Encerramento_v1.1.pdf) | 1.1 |
+| D9 | [Controle de alterações consolidado](docs/entrega-final/D9_Controle_de_Alteracoes_e_Rastreabilidade_v1.0.pdf) | 1.0 |
+
 O [kit final AnomaliData 0.2.1](docs/entregas/AnomaliData_0.2.1_Kit_Entrega_Final.zip)
 inclui os wheels para instalação offline, a base e o gabarito, o vídeo, o HTML
 de contingência e a documentação em PDF. O manual D7 explica a instalação e

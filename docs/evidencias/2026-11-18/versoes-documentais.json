@@ -1,0 +1,61 @@
+{
+  "data": "2026-11-18",
+  "versao_dossie": "1.0",
+  "versao_software": "0.2.1",
+  "componentes": [
+    {
+      "id": "D1",
+      "versao": "1.4",
+      "origem": "Termo de Abertura/TR_Marcio_v1.4_ABNT.odt",
+      "sha256_origem": "14e0e5af5f6ffcab474cd9d6ba4adebd030e5bd2fe71d7e16769710070dd659d"
+    },
+    {
+      "id": "D2",
+      "versao": "1.4",
+      "origem": "Roteiro_de_Entrevista_AnomaliData_v1.4_ABNT.odt",
+      "sha256_origem": "7cc359eeb21bd4ae4675ec20d2735205ea337b86872b3e6969fb403f07dfd8ce"
+    },
+    {
+      "id": "D3",
+      "versao": "1.0",
+      "origem": "AnomaliData/docs/especificacao-requisitos.md",
+      "sha256_origem": "412636a7b8813a1c1780f1b31ebe250edb343c5645bdc47fec7e2d285f2c4709"
+    },
+    {
+      "id": "D4",
+      "versao": "1.3",
+      "origem": "Fase_2_Decisoes_Tecnicas_AnomaliData_v1.3_ABNT.docx",
+      "sha256_origem": "ce978d9c6b5b902365d897e9042f6708af3ca7fa7060f352d77188c2af5401c3"
+    },
+    {
+      "id": "D5",
+      "versao": "1.1",
+      "origem": "Fase_3_Arquitetura_AnomaliData_v1.1_ABNT.docx",
+      "sha256_origem": "f2707bd2dcd8d9755bc3d5c2e17e5c26bbfa6dca57a85a53935348febb4bbbb2"
+    },
+    {
+      "id": "D6",
+      "versao": "1.0",
+      "origem": "Fase_5_Integracao_Verificacao_AnomaliData_v1.0_ABNT.docx",
+      "sha256_origem": "a2bdd5ca49b2207ead7ca8f1a2fae56f48e82baf4ad6990cc6797dd4fa28ee13"
+    },
+    {
+      "id": "D7",
+      "versao": "1.1",
+      "origem": "Entrega_Fase_6/Fase_6_Entrega_Defesa_AnomaliData_v1.1_ABNT.docx",
+      "sha256_origem": "a7097ede64f3dc42dba83c8812f3a0488e58bc3b0169c0fa73beabc51f9760b8"
+    },
+    {
+      "id": "D8",
+      "versao": "1.1",
+      "origem": "Entrega_Fase_6/Fase_6_Entrega_Defesa_AnomaliData_v1.1_ABNT.docx",
+      "sha256_origem": "a7097ede64f3dc42dba83c8812f3a0488e58bc3b0169c0fa73beabc51f9760b8"
+    },
+    {
+      "id": "D9",
+      "versao": "1.0",
+      "origem": "Controle criado na consolidação final do dossiê."
+    }
+  ],
+  "nota": "As versões dos componentes preservam as fontes documentais; D7 e D8 derivam da Fase 6 v1.1. A versão 1.0 do dossiê não reinicia as versões dos documentos."
+}

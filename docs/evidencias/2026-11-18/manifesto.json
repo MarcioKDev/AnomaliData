@@ -3,13 +3,24 @@
   "data": "2026-11-18",
   "versao_dossie": "1.0",
   "versao_software": "0.2.1",
+  "versoes_componentes": {
+    "D1": "1.4",
+    "D2": "1.4",
+    "D3": "1.0",
+    "D4": "1.3",
+    "D5": "1.1",
+    "D6": "1.0",
+    "D7": "1.1",
+    "D8": "1.1",
+    "D9": "1.0"
+  },
   "pacote_original_instalado": {
     "arquivo": "AnomaliData_0.2.1_Kit_Entrega.zip",
     "sha256": "df08bcca876958904e44e7e3d193fc9bbf49af004be1a8742bc69a99833d9dcd"
   },
   "pacote_final": {
     "arquivo": "AnomaliData_0.2.1_Kit_Entrega_Final.zip",
-    "sha256": "c8f978a626b37013f176671b86f68760d9ca2dbb829bc8206968dbc40483ca85"
+    "sha256": "f9fe5a2d6cc047e574743b6dc32a9bcedc90263763ffb52a526b0293dc167f60"
   },
   "arquivos": {
     "AV1_Correcao_Professor.pdf": "977db8a7117ce6f8885a4e24a64136a70cc966217224bcc480f2436d215792d5",
@@ -17,8 +28,9 @@
     "benchmark.csv": "841ce66919fa24a07ffd6e7ec33da33a80355a012c6caef18f3a8dcc34059901",
     "instalacao-independente.txt": "86e59268e57adc84a5e5a5ff27032185121ac40821ecd2320399cde5817d8934",
     "instalacao.txt": "d752ac76434853a9976b58ce35d995964fe6de43758d8b7df11290d36107134c",
-    "pacote-final.json": "04d4162651ad83b435f641d4d1125f6c4a15bacceb086963425b8d0b68e3c5cf",
-    "revisao-documental.json": "07c62cd82e2915628f17dabe1aa40f632772008e9eb5e9d61af8ae0b16d2252c",
-    "testes.txt": "9fb89864f2c65a9807b16fd5639fb2aa838542b293c3f6ec89ff36f21af9b7cf"
+    "pacote-final.json": "6cde6189c376640f9472216c26060979975f5ca14bf663138f00e55ae1315dcf",
+    "revisao-documental.json": "1e8c3417f4a185c453aa98a96d0589456ad83e9259d9f747a0ddfd5683e6dc29",
+    "testes.txt": "9fb89864f2c65a9807b16fd5639fb2aa838542b293c3f6ec89ff36f21af9b7cf",
+    "versoes-documentais.json": "d08eeed6070f1cc3bcfeee5427868a974b5e80456614ff2686901788c6920fa8"
   }
 }
