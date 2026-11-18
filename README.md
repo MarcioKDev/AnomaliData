@@ -7,6 +7,26 @@ que se desviam do histórico do grupo selecionado. A demonstração principal us
 o preço unitário agrupado por produto e fornecedor, com uma base sintética
 versionada e anomalias conhecidas.
 
+## Entrega final para avaliação
+
+O [dossiê final v1.0 em PDF](docs/entrega-final/AnomaliData_EntregaFinal_v1.0.pdf)
+consolida D1 a D9 em 42 páginas, com índice na primeira página, numeração
+contínua e referências entre requisitos, implementação e evidências. Os
+[nove PDFs individuais](docs/entrega-final/) estão disponíveis para consulta.
+
+O [kit final AnomaliData 0.2.1](docs/entregas/AnomaliData_0.2.1_Kit_Entrega_Final.zip)
+inclui os wheels para instalação offline, a base e o gabarito, o vídeo, o HTML
+de contingência e a documentação em PDF. O manual D7 explica a instalação e
+o primeiro uso. O código executável e os dados são os mesmos do pacote
+verificado; o dossiê tem versão documental 1.0.
+
+A [verificação de 18/11/2026](docs/evidencias/2026-11-18/) registrou 33 testes
+aprovados, 45 detecções e nenhum falso positivo na configuração formal,
+além de uma instalação técnica em ambiente virtual novo. O registro do teste
+de Jeferson em 09/11/2026 está no D7 e na Fase 6. Sua versão exata do ZIP e
+o formulário não foram registrados; essa limitação consta de D3 e D8. As
+demais limitações do produto e da validação também estão no D8.
+
 ## Estado atual
 
 O AnomaliData 0.2.1 reúne o incremento executável, os testes e a documentação
@@ -114,6 +134,9 @@ como variável durante a análise.
 
 ## Documentação
 
+- [Dossiê final D1 a D9 em PDF](docs/entrega-final/AnomaliData_EntregaFinal_v1.0.pdf)
+- [Kit instalável da entrega final](docs/entregas/AnomaliData_0.2.1_Kit_Entrega_Final.zip)
+- [Evidências da última verificação](docs/evidencias/2026-11-18/)
 - [Entrega e defesa da Fase 6](docs/fase-6-entrega-defesa.md)
 - [Instalação pelo pacote offline](docs/instalacao-entrega.md)
 - [Integração e verificação da Fase 5](docs/fase-5-integracao-verificacao.md)

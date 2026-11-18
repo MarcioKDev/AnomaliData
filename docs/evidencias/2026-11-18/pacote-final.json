@@ -1,0 +1,22 @@
+{
+  "data": "2026-11-18",
+  "pacote_original_instalado": "AnomaliData_0.2.1_Kit_Entrega.zip",
+  "sha256_pacote_original_instalado": "df08bcca876958904e44e7e3d193fc9bbf49af004be1a8742bc69a99833d9dcd",
+  "pacote_final": "AnomaliData_0.2.1_Kit_Entrega_Final.zip",
+  "sha256_pacote_final": "c8f978a626b37013f176671b86f68760d9ca2dbb829bc8206968dbc40483ca85",
+  "conferencia": "Wheels, dados, HTML e vídeo preservados byte a byte; documentação substituída pelos PDFs finais.",
+  "conteudo_pacote_final": {
+    "AnomaliData_EntregaFinal_v1.0.pdf": "14ce50e29cdcc7e1c0ee3f33688daf92293e79cf3ce4f93e6c627c05c8ee2d3f",
+    "D7_Manual_de_Instalacao_e_Uso_v1.0.pdf": "70a3e1478ff0b68a77d04e9b4c0ee992176fcf7002aaae8f8f817ca120dc2509",
+    "Demonstracao_Falhas_AnomaliData_Atividade_12.mp4": "b2a047ee211b01b83e5ddb7ff3d05f4cfbde89542970bf866f2dddd36df523cb",
+    "SHA256SUMS.txt": "a61a45798c3c9cac5f70daa1cdf0f407bdfddfe16342e3379129b31b4afcf402",
+    "dados/anomalias_esperadas.csv": "5e05a1a8ccceb8b8a7c475a986a51134daa5135b3e1a0995329fdb26afe90dc1",
+    "dados/base_validacao_10000.csv": "900055ab69bc3efbe28e5fb3d7b3ddab8dfee9dc67bd69b92691d5b85e9d9441",
+    "dados/entrada_truncada.csv": "64d1abcf3de3ea908266b44efffb541ce148caf81e894b64ec27b5ccd111df6c",
+    "dados/metadados.json": "9290e2befab9766965cac50242134a814cac0b75024143b0127ba4f0ecc13a00",
+    "relatorio_demonstracao.html": "eafc9d929fa0768ece5343e541d3f61f7fee1775675d0bba9eaa63b044de5c87",
+    "wheels/anomalidata-0.2.1-py3-none-any.whl": "81c37bcf75f4b98d44ecb9df4d0162493a634f58af89928e52add3c49b78653b",
+    "wheels/et_xmlfile-2.0.0-py3-none-any.whl": "7a91720bc756843502c3b7504c77b8fe44217c85c537d85037f0f536151b2caa",
+    "wheels/openpyxl-3.1.5-py2.py3-none-any.whl": "5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2"
+  }
+}

@@ -1,5 +1,19 @@
 # Fase 6 Entrega e defesa
 
+## Consolidação da entrega final — 18/11/2026
+
+Para a avaliação final, consulte o
+[dossiê v1.0 em PDF](entrega-final/AnomaliData_EntregaFinal_v1.0.pdf), que reúne
+D1 a D9 conforme a estrutura de entrega do professor, e o
+[kit final 0.2.1](entregas/AnomaliData_0.2.1_Kit_Entrega_Final.zip), com os
+mesmos wheels e dados verificados e a documentação consolidada em PDF.
+As [evidências de 18/11/2026](evidencias/2026-11-18/) incluem a saída datada
+dos 33 testes, o benchmark reexecutado e o registro da instalação técnica.
+O ensaio independente descrito abaixo é anterior a essa consolidação do
+manual; a ressalva documental permanece declarada em D3 e D8.
+
+As entregas parciais anteriores são mantidas para consulta ao histórico:
+
 - [Relatório acadêmico v1.1](entregas/Fase_6_Entrega_Defesa_AnomaliData_v1.1_ABNT.docx)
 - [Apresentação v1.1 com notas de fala](entregas/Defesa_AnomaliData_v1.1.pptx)
 
@@ -68,13 +82,16 @@ execução técnica e identifique-o como evidência prévia.
 | Campo | Registro |
 |---|---|
 | Data e ambiente | 09/11/2026, Windows 11 com WSL. |
-| Participante e procedimento | Pessoa alheia ao desenvolvimento. Instalou do zero e concluiu a análise usando apenas o manual, sem intervenção do autor. |
+| Participante e procedimento | Jeferson, pessoa alheia ao desenvolvimento, conforme identificação fornecida pelo autor em 18/11/2026. Instalou do zero e concluiu a análise usando apenas o manual, sem intervenção do autor. |
 | Resultado | A base de demonstração apresentou 45 alertas. O participante informou que conseguiu seguir o manual e utilizar o aplicativo. |
-| Evidência e versão | Relato do autor, que recebeu a confirmação do participante. O formulário não foi recebido. O número de versão do ZIP usado no ensaio não foi registrado. |
+| Evidência e versão | Relato do autor, que recebeu a confirmação do participante. O formulário não foi recebido. O pacote foi identificado apenas como “ZIP padrão”; seu número de versão não foi registrado. |
 
-O relato documenta o atendimento do CA-08 no ensaio realizado. O pacote 0.2.1,
-preparado depois desse ensaio, passou pela instalação e verificação técnicas
-descritas acima.
+O relato registra a conclusão do fluxo do CA-08 naquele ensaio. A ausência do
+formulário e da versão exata limita a evidência documental, classificada como
+atendimento parcial em D3 (RNF-03) e D8 (L4). O pacote 0.2.1, preparado depois
+desse ensaio, passou pela instalação e verificação técnicas descritas acima
+e pela conferência de 18/11/2026. Esses testes técnicos não substituem uma
+nova execução independente do manual consolidado.
 
 ## Ensaio da banca
 

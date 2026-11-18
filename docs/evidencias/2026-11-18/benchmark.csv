@@ -1,0 +1,9 @@
+volume,estrategia,tempo_mediano_ms,operacoes_de_chave
+1000,lista_com_busca_linear,6.171,91726
+1000,dicionario_hash,0.169,1000
+5000,lista_com_busca_linear,99.555,2260289
+5000,dicionario_hash,0.869,5000
+10000,lista_com_busca_linear,381.044,9095848
+10000,dicionario_hash,1.995,10000
+20000,lista_com_busca_linear,830.765,19063881
+20000,dicionario_hash,4.306,20000

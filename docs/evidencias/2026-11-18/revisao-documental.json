@@ -1,0 +1,97 @@
+{
+  "paginas": 42,
+  "documentos": [
+    {
+      "id": "D1",
+      "title": "Termo de referência",
+      "start": 2,
+      "pages": 4,
+      "filename": "D1_Termo_de_Referencia_v1.0.pdf"
+    },
+    {
+      "id": "D2",
+      "title": "Registro do levantamento",
+      "start": 6,
+      "pages": 5,
+      "filename": "D2_Registro_do_Levantamento_v1.0.pdf"
+    },
+    {
+      "id": "D3",
+      "title": "Especificação de requisitos",
+      "start": 11,
+      "pages": 6,
+      "filename": "D3_Especificacao_de_Requisitos_v1.0.pdf"
+    },
+    {
+      "id": "D4",
+      "title": "Decisões técnicas de base",
+      "start": 17,
+      "pages": 4,
+      "filename": "D4_Decisoes_Tecnicas_v1.0.pdf"
+    },
+    {
+      "id": "D5",
+      "title": "Arquitetura, domínio e dados",
+      "start": 21,
+      "pages": 6,
+      "filename": "D5_Arquitetura_Dominio_e_Dados_v1.0.pdf"
+    },
+    {
+      "id": "D6",
+      "title": "Plano e resultado dos testes",
+      "start": 27,
+      "pages": 5,
+      "filename": "D6_Plano_e_Resultado_dos_Testes_v1.0.pdf"
+    },
+    {
+      "id": "D7",
+      "title": "Manual de instalação e uso",
+      "start": 32,
+      "pages": 4,
+      "filename": "D7_Manual_de_Instalacao_e_Uso_v1.0.pdf"
+    },
+    {
+      "id": "D8",
+      "title": "Relatório de encerramento",
+      "start": 36,
+      "pages": 3,
+      "filename": "D8_Relatorio_de_Encerramento_v1.0.pdf"
+    },
+    {
+      "id": "D9",
+      "title": "Controle de alterações e rastreabilidade",
+      "start": 39,
+      "pages": 4,
+      "filename": "D9_Controle_de_Alteracoes_e_Rastreabilidade_v1.0.pdf"
+    }
+  ],
+  "fontes_utilizadas": {
+    "AAAAAA+Arial-BoldMT": 6107,
+    "AAAAAA+ArialMT": 49392,
+    "AAAAAA+DejaVuSansMono": 407
+  },
+  "margens_e_paginacao": "aprovadas",
+  "indice_e_links": "aprovados",
+  "comparacao_componentes": "aprovada",
+  "data": "2026-11-18",
+  "versao_dossie": "1.0",
+  "revisao_visual": "42 páginas renderizadas e conferidas. Índice e referências revistos após o ajuste final.",
+  "formato": "A4; margens superior/esquerda 3 cm e inferior/direita 2 cm; corpo Arial 12 com entrelinhas 1,5; referências e legendas em espaço simples.",
+  "modelo": "Índice inicial e ordem D1–D9 conforme Estrutura_da_Entrega_Final.docx; capa integrada ao índice.",
+  "referencia_de_formatacao": "ABNT NBR 14724:2024, respeitando as exigências específicas de estrutura do professor.",
+  "fonte_da_norma": "https://www.ccs.ufpb.br/coordfarm/wp-content/uploads/sites/21/sites/454/2026/03/ABNT_NBR_14724_2024-1.pdf",
+  "codigos": "Trechos curtos em fonte monoespaçada, conforme exigência expressa do professor.",
+  "arquivos_pdf": {
+    "AnomaliData_EntregaFinal_v1.0.pdf": "14ce50e29cdcc7e1c0ee3f33688daf92293e79cf3ce4f93e6c627c05c8ee2d3f",
+    "D1_Termo_de_Referencia_v1.0.pdf": "48bddbc2b962dc68ed233029005bc4f6db1806aa9fab6077d0f6aae2dcf60eef",
+    "D2_Registro_do_Levantamento_v1.0.pdf": "89318db6654e7dd4a28fd8c295d955230b8283ecebcba695d338cc678cd62681",
+    "D3_Especificacao_de_Requisitos_v1.0.pdf": "8349f3cf04fe088334085d8fe96d14d96687c8292fb795955f4ff43604acfead",
+    "D4_Decisoes_Tecnicas_v1.0.pdf": "5b52ff5076dbc2fd3f000663341c0581e68aa920b6497f87196cdcfdba3c764d",
+    "D5_Arquitetura_Dominio_e_Dados_v1.0.pdf": "cec971e0a0ea6525e28b23525c87d0a807cd1acf2ef83c28495e15976bbeafee",
+    "D6_Plano_e_Resultado_dos_Testes_v1.0.pdf": "a868099659d231b2324465efa37b0298e8e4552a5f2a9b9b5fde9a951e044991",
+    "D7_Manual_de_Instalacao_e_Uso_v1.0.pdf": "70a3e1478ff0b68a77d04e9b4c0ee992176fcf7002aaae8f8f817ca120dc2509",
+    "D8_Relatorio_de_Encerramento_v1.0.pdf": "20910dcdde562520e670c0a909b067c52fd66cc89dadc26e8036c7e62733e667",
+    "D9_Controle_de_Alteracoes_e_Rastreabilidade_v1.0.pdf": "8df4e86a66461b015a2b226b0871f2d24e64bce83ef9732c114b584e9a222c77"
+  },
+  "limites": "A conformidade documental não elimina as limitações de validação e do produto declaradas em D8. RNF-03 tem evidência parcial."
+}

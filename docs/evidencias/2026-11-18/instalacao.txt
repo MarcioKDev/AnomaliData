@@ -1,0 +1,6 @@
+Importação rejeitada: Linha 2: fornecedor deve ser informado
+Data 18/11/2026. Produto instalado 0.2.1
+Ambiente Linux-7.0.0-43-generic-x86_64-with-glibc2.39 3.12.14 SQLite 3.53.1 Tk 9.0
+Falha esperada Linha 2: fornecedor deve ser informado
+Tela Registros lidos: 10.000 · Analisados: 10.000 · Duplicidades: 0 · Alertas: 45
+Histórico e revisão recuperados. HTML gerado. Importação inválida preservou o histórico.

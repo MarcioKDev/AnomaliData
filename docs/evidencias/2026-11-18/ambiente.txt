@@ -1,0 +1,16 @@
+AnomaliData — ambiente da verificação de 18/11/2026
+Código-fonte: 3f68b40899f2e15051ef8b0f300da82519a66292
+Sistema: Linux-7.0.0-43-generic-x86_64-with-glibc2.39
+Equipamento: AMD Ryzen 7 5700U, x86_64
+Python: 3.12.14
+SQLite: 3.53.1
+Tk: 9.0
+openpyxl: 3.1.5
+Benchmark: sete repetições por estratégia e volume; mediana em ms.
+Semente do benchmark: 20260916 + quantidade.
+Semente da base anotada: 20261028.
+Reproduzir na raiz do repositório:
+python benchmarks/benchmark_indice_historico.py --repeticoes 7 --saida /tmp/benchmark.csv
+PYTHONPATH=src python -m unittest discover -s tests -v
+A contagem de operações é determinística. Os tempos variam com o ambiente.
+A instalação técnica usou ambiente virtual novo, wheel e dependências do ZIP, --no-index e pip check.

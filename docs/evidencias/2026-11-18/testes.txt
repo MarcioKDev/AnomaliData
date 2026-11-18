@@ -1,0 +1,47 @@
+AnomaliData 0.2.1 — verificação para a entrega final
+Data de execução: 18/11/2026 (America/Sao_Paulo)
+Código-fonte de referência: 3f68b40899f2e15051ef8b0f300da82519a66292
+Dossiê correspondente: AnomaliData_EntregaFinal_v1.0.pdf
+Comando: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python -m unittest discover -s tests -v
+Dados sintéticos e bancos temporários. Tkinter executado em sessão gráfica.
+
+test_alertas_explicam_referencia_e_desvio (test_analise_aceitacao.AnaliseAceitacaoTest.test_alertas_explicam_referencia_e_desvio) ... ok
+test_atende_aos_criterios_formais_na_base_anotada (test_analise_aceitacao.AnaliseAceitacaoTest.test_atende_aos_criterios_formais_na_base_anotada) ... ok
+test_gera_base_com_dimensoes_formais (test_base_validacao.BaseValidacaoTest.test_gera_base_com_dimensoes_formais) ... ok
+test_geracao_e_deterministica (test_base_validacao.BaseValidacaoTest.test_geracao_e_deterministica) ... ok
+test_carrega_csv_e_ignora_linha_exatamente_duplicada (test_importacao.ImportacaoTest.test_carrega_csv_e_ignora_linha_exatamente_duplicada) ... ok
+test_carrega_xlsx (test_importacao.ImportacaoTest.test_carrega_xlsx) ... ok
+test_indica_linha_fisica_apos_linha_vazia_e_campo_multilinha (test_importacao.ImportacaoTest.test_indica_linha_fisica_apos_linha_vazia_e_campo_multilinha) ... ok
+test_indica_numero_da_linha_com_valor_invalido (test_importacao.ImportacaoTest.test_indica_numero_da_linha_com_valor_invalido) ... ok
+test_rejeita_csv_sem_coluna_obrigatoria (test_importacao.ImportacaoTest.test_rejeita_csv_sem_coluna_obrigatoria) ... ok
+test_agrupa_por_produto_e_fornecedor (test_indice_historico.IndiceHistoricoTest.test_agrupa_por_produto_e_fornecedor) ... ok
+test_ct02_ct03_ct06_ct07_base_formal (test_integracao_fase5.IntegracaoFase5Test.test_ct02_ct03_ct06_ct07_base_formal) ... ok
+test_ct09_coluna_numero_e_duplicidade (test_integracao_fase5.IntegracaoFase5Test.test_ct09_coluna_numero_e_duplicidade) ... ok
+test_fi01_origem_ausente_e_retomada_sem_rede (test_integracao_fase5.IntegracaoFase5Test.test_fi01_origem_ausente_e_retomada_sem_rede) ... ok
+test_fi02_csv_truncado_e_xlsx_sem_celula_obrigatoria (test_integracao_fase5.IntegracaoFase5Test.test_fi02_csv_truncado_e_xlsx_sem_celula_obrigatoria) ... ok
+test_fi03_numeros_fora_da_faixa (test_integracao_fase5.IntegracaoFase5Test.test_fi03_numeros_fora_da_faixa) ... ok
+test_contagem_e_rascunho_durante_busca (test_integracao_fase5.InterfaceFase5Test.test_contagem_e_rascunho_durante_busca) ... ok
+test_ct01_ct04_ct05_ct10_ct11_fi04_fi05 (test_integracao_fase5.InterfaceFase5Test.test_ct01_ct04_ct05_ct10_ct11_fi04_fi05) ... ok
+test_cria_chave_historica (test_modelos.RegistroCompraTest.test_cria_chave_historica) ... ok
+test_rejeita_data_futura (test_modelos.RegistroCompraTest.test_rejeita_data_futura) ... ok
+test_rejeita_preco_nao_positivo (test_modelos.RegistroCompraTest.test_rejeita_preco_nao_positivo) ... ok
+test_aceita_alertas_em_ordem_decrescente (test_modelos.ResultadoAnaliseTest.test_aceita_alertas_em_ordem_decrescente) ... ok
+test_rejeita_alertas_fora_de_ordem (test_modelos.ResultadoAnaliseTest.test_rejeita_alertas_fora_de_ordem) ... ok
+test_fluxo_principal_nao_abre_conexao_de_rede (test_operacao_offline.OperacaoOfflineTest.test_fluxo_principal_nao_abre_conexao_de_rede) ... ok
+test_aplica_migracoes_e_cria_estrutura_prevista (test_persistencia_sqlite.PersistenciaSQLiteTest.test_aplica_migracoes_e_cria_estrutura_prevista) ... ok
+test_banco_nao_armazena_arquivo_bruto (test_persistencia_sqlite.PersistenciaSQLiteTest.test_banco_nao_armazena_arquivo_bruto) ... ok
+test_repositorios_implementam_contratos_e_recuperam_dados (test_persistencia_sqlite.PersistenciaSQLiteTest.test_repositorios_implementam_contratos_e_recuperam_dados) ... ok
+test_gera_html_autocontido_com_parametros_e_alertas (test_relatorio.RelatorioTest.test_gera_html_autocontido_com_parametros_e_alertas) ... ok
+test_calcula_expiracao_de_ano_bissexto (test_repositorios_memoria.AnaliseRegistradaTest.test_calcula_expiracao_de_ano_bissexto) ... ok
+test_rejeita_expiracao_diferente_de_12_meses (test_repositorios_memoria.AnaliseRegistradaTest.test_rejeita_expiracao_diferente_de_12_meses) ... ok
+test_exclui_analises_expiradas (test_repositorios_memoria.RepositorioAnalisesMemoriaTest.test_exclui_analises_expiradas) ... ok
+test_implementa_contrato_do_dominio (test_repositorios_memoria.RepositorioAnalisesMemoriaTest.test_implementa_contrato_do_dominio) ... ok
+test_salva_busca_e_lista_somente_analises_ativas (test_repositorios_memoria.RepositorioAnalisesMemoriaTest.test_salva_busca_e_lista_somente_analises_ativas) ... ok
+test_implementa_contrato_e_substitui_revisao_anterior (test_repositorios_memoria.RepositorioRevisoesMemoriaTest.test_implementa_contrato_e_substitui_revisao_anterior) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 2.562s
+
+OK
+
+CT-02/03/06/07: VP=45, FP=0, FN=5, tempos=0.1148 s, 0.1326 s, 0.1156 s

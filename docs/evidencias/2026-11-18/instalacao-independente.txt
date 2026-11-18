@@ -1,0 +1,12 @@
+CA-08 — registro de relato de instalação independente
+Fonte: informações fornecidas por Marcio Kauã Ferreira de Campos nesta revisão.
+Participante: Jeferson, alheio ao desenvolvimento, segundo o autor. Sobrenome não informado.
+Data relatada do ensaio: 09/11/2026.
+Ambiente relatado: Windows 11 com WSL; distribuição e versão do WSL não registradas.
+Procedimento relatado: instalação do zero e análise seguindo somente o manual, sem ajuda do autor.
+Resultado relatado: 45 alertas na base de demonstração; manual e utilidade aprovados pelo participante.
+Pacote identificado pelo autor: ZIP padrão. Número de versão não registrado.
+O formulário respondido não foi recebido. Não há gravação ou declaração direta do participante neste registro.
+Identificação Jeferson e ZIP padrão confirmada pelo autor em 18/11/2026.
+Este registro não comprova repetição do ensaio com o D7 consolidado de 18/11/2026.
+Situação documental: RNF-03 atendido em parte; ver D3, D7 e D8/L4.
