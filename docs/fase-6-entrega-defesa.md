@@ -1,5 +1,7 @@
 # Fase 6 Entrega e defesa
 
+- [Apresentação da defesa v1.2, para 25/11/2026](entregas/Defesa_AnomaliData_v1.2.pptx): 12 slides adaptados ao modelo do professor, com notas de fala, roteiro de demonstração e fontes. A apresentação tem versão própria; o aplicativo continua em 0.2.1 e o dossiê em 1.0.
+
 ## Consolidação da entrega final — 18/11/2026
 
 Para a avaliação final, consulte o

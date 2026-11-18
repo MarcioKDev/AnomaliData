@@ -14,6 +14,10 @@ consolida D1 a D9 em 42 páginas, com índice na primeira página, numeração
 contínua e referências entre requisitos, implementação e evidências. Os
 [nove PDFs individuais](docs/entrega-final/) estão disponíveis para consulta.
 
+A [apresentação da defesa v1.2](docs/entregas/Defesa_AnomaliData_v1.2.pptx),
+prevista para 25/11/2026, segue os 12 slides do modelo fornecido pelo professor.
+As notas do apresentador incluem a fala, o roteiro da demonstração e as fontes.
+
 A versão 1.0 identifica o dossiê. Cada componente preserva a versão de sua
 fonte documental, indicada também no índice, no cabeçalho e no rodapé:
 
@@ -150,6 +154,7 @@ como variável durante a análise.
 ## Documentação
 
 - [Dossiê final D1 a D9 em PDF](docs/entrega-final/AnomaliData_EntregaFinal_v1.0.pdf)
+- [Apresentação da defesa v1.2, no modelo do professor](docs/entregas/Defesa_AnomaliData_v1.2.pptx)
 - [Kit instalável da entrega final](docs/entregas/AnomaliData_0.2.1_Kit_Entrega_Final.zip)
 - [Evidências da última verificação](docs/evidencias/2026-11-18/)
 - [Entrega e defesa da Fase 6](docs/fase-6-entrega-defesa.md)
